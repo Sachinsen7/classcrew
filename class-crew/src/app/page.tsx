@@ -1,8 +1,8 @@
 "use client";
 
 import type { Course } from "@/types/course";
-import Footer from '@/components/layout/footer/page'
-import Navbar from '@/components/layout/navbar/page'
+import Footer from "@/components/layout/footer/page";
+import Navbar from "@/components/layout/navbar/page";
 import { Banner, NavBar, CourseSection } from "@/components/home";
 import SearchBanner from "@/components/ui/SearchBanner";
 import React from "react";
@@ -111,7 +111,7 @@ export default function StorePage() {
   const [job, setJob] = React.useState("");
   return (
     <main className="flex flex-col items-center w-full">
-      <Navbar/>
+      <Navbar />
       <Banner />
       <NavBar />
       <CourseSection title="NEWEST" courses={newestCourses} />
@@ -149,9 +149,7 @@ export default function StorePage() {
           },
         ]}
       />
-       <Footer/>
+      <Footer />
     </main>
   );
 }
-
-export default page
