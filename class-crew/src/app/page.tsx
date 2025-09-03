@@ -5,6 +5,7 @@ import { Banner, NavBar, CourseSection } from "@/components/home";
 import SearchBanner from "@/components/ui/SearchBanner";
 import React from "react";
 import Button from "@/components/ui/Button";
+import NavbarPage from "@/components/layout/navbar/page";
 
 const newestCourses: Course[] = [
   {
