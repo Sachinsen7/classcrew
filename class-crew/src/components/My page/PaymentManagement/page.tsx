@@ -63,30 +63,21 @@ export default function PaymentManagement() {
       </div>
 
       {/* Tabs */}
-      <nav className="flex items-start gap-8 border-b border-gray-300 mt-8">
-        <button className="pb-2 text-[20px] font-bold cursor-pointer">
-          학습현황
-        </button>
-        <button className="pb-2 border-b-2 border-black text-[20px] font-bold cursor-pointer">
-          결제관리
-        </button>
-        <button className="pb-2 text-[20px] font-bold cursor-pointer">
-          1:1문의내역
-        </button>
-        <button className="pb-2 text-[20px] font-bold cursor-pointer">
-          계정설정
-        </button>
-      </nav>
-
-      {/* Three Sub-buttons (LEFT) */}
-      <div className="flex w-full gap-3 mt-6 justify-start">
-        <button className="px-6 py-2 bg-black text-white font-bold">
-          결제내역
-        </button>
-        <button className="px-6 py-2 bg-gray-100 font-bold">
-          취소/환불내역
-        </button>
-        <button className="px-6 py-2 bg-gray-100 font-bold">STORE</button>
+      <div>
+        <nav className="flex items-start gap-8 border-b border-gray-300 mt-8">
+          <button className="pb-2 text-[20px] font-bold cursor-pointer">
+            학습현황
+          </button>
+          <button className="pb-2 border-b-2 border-black text-[20px] font-bold cursor-pointer">
+            결제관리
+          </button>
+          <button className="pb-2 text-[20px] font-bold cursor-pointer">
+            1:1문의내역
+          </button>
+          <button className="pb-2 text-[20px] font-bold cursor-pointer">
+            계정설정
+          </button>
+        </nav>
       </div>
 
       {/* Dropdown */}
