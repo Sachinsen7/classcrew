@@ -42,7 +42,7 @@ export default function NavBar() {
                 navRefs.current[index] = el;
               }}
               href="#"
-              className={`text-[var(--text)] hover:text-[var(--primary)] transition-colors duration-200 ${
+              className={`text-[20px] font-bold text-[var(--text)] hover:text-[var(--primary)] transition-colors duration-200 ${
                 activeIndex === index ? "text-[var(--primary)]" : ""
               }`}
               onClick={() => setActiveIndex(index)}
