@@ -11,9 +11,7 @@ export default function CourseCard({
     <div
       className={`bg-white border border-[var(--primary)] rounded-lg p-4 
                  shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105
-                 flex flex-col w-[288px] h-[288px] ${
-                   highlighted ? "border-4 border-blue-500" : ""
-                 }`}
+                 flex flex-col w-[288px] h-[288px] `}
       role="article"
       aria-labelledby={`course-title-${course.id}`}
     >
