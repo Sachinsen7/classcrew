@@ -1,13 +1,13 @@
 "use client";
 
 import StorePage from "@/components/home/page";
-import MyPage from "@/components/My page/AccountSettings/page";
+import LearningStatus from "@/components/My page/LearningStatus/page";
 
 function page() {
   return (
     <div className="min-h-screen flex items-center justify-center flex-col">
       <StorePage />
-      <MyPage />
+      <LearningStatus />
     </div>
   );
 }
