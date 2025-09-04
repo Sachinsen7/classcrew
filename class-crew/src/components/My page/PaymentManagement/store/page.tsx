@@ -71,6 +71,22 @@ export default function StorePage() {
         <div className="flex-1">
           <ReusableTable columns={columns} rows={rows} />
         </div>
+
+        <div className="flex flex-col items-center justify-center gap-4 ml-6">
+          <Image
+            src="/My page/up-arrow.svg"
+            alt="Up Arrow"
+            width={20}
+            height={20}
+          />
+          <Image
+            src="/My page/search.svg"
+            alt="Search"
+            width={20}
+            height={20}
+          />
+          <Image src="/My page/chat.svg" alt="Chat" width={20} height={20} />
+        </div>
       </div>
     </div>
   );
