@@ -41,7 +41,6 @@ export default function PaymentHistory() {
 
   return (
     <>
-      {/* Dropdown aligned right */}
       <div className="w-[1270px] mx-auto flex justify-end mt-14 pr-4">
         <span className="text-[14px] font-bold">조회기간 설정</span>
         <Image
@@ -53,13 +52,25 @@ export default function PaymentHistory() {
         />
       </div>
 
-      {/* Table with left-side icons */}
       <div className="w-[1270px] mx-auto flex mt-10 gap-6">
-        {/* Left-side icons */}
-
-        {/* Table */}
         <div className="flex-1">
           <ReusableTable columns={columns} rows={rows} />
+        </div>
+
+        <div className="flex flex-col items-center justify-center gap-4 ml-6">
+          <Image
+            src="/My page/up-arrow.svg"
+            alt="Up Arrow"
+            width={20}
+            height={20}
+          />
+          <Image
+            src="/My page/search.svg"
+            alt="Search"
+            width={20}
+            height={20}
+          />
+          <Image src="/My page/chat.svg" alt="Chat" width={20} height={20} />
         </div>
       </div>
     </>
