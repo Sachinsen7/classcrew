@@ -38,8 +38,6 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Right Section */}
-        {/* Right Section */}
         <div className="bg-[#ffffff14] rounded-lg p-8 flex flex-col gap-4 shadow-lg w-full h-[210px] md:w-auto">
           {/* Buttons + Social + Dropdown */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
