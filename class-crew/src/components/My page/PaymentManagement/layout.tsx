@@ -22,7 +22,7 @@ export default function PaymentLayout({
   return (
     <div className="w-[1270px] mx-auto">
       {/* Sub Tabs */}
-      <div className="flex gap-3 mt-6 justify-center">
+      <div className="flex gap-3 mt-10 justify-start">
         {subTabs.map((tab) => (
           <Link
             key={tab.href}
