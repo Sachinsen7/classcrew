@@ -5,7 +5,7 @@
   --secondary: #f3f3f3;
   --background: #ffffff;
   --text: #6d6d6d;
-   --font-plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-plus-jakarta-sans: "Plus Jakarta Sans", sans-serif;
   --font-sans: var(--font-plus-jakarta-sans);
   --font-phenomena: var(--font-phenomena);
 }
@@ -23,8 +23,6 @@ body {
   font-family: var(--font-plus-jakarta-sans);
   margin: 0;
   padding: 0;
-  
-
 }
 .primary-bg {
   background-color: var(--primary);
