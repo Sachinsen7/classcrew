@@ -6,7 +6,7 @@ import ReusableTable from "@/components/ui/TableProps/Table";
 import downloadIcon from "../../../../public/My page/symbols_download.svg";
 import dropdown from "../../../../public/My page/drop-down.svg";
 
-export default function MyPage() {
+export default function InquiryHistory() {
   const columns = [
     { key: "no", label: "No." },
     { key: "course", label: "과정명" },
