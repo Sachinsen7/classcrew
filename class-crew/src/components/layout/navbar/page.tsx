@@ -5,7 +5,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 import { phenomena } from "@/app/font";
 
 
@@ -13,18 +13,10 @@ import { phenomena } from "@/app/font";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = [
-    { name: "CLASS", href: "/class" },
-    { name: "캘린더", href: "/calendar" },
-    { name: "STORE", href: "/store" },
-    { name: "제휴", href: "/partnership" },
-    { name: "고객센터", href: "/support" },
-    { name: "로그인", href: "/login" },
-  ];
 
   return (
     <nav className="w-full h-[67px] bg-primary text-white shadow-lg fixed top-0 left-0 z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-8 h-full">
+      <div className="max-w-full ml-14 mr-10 pt-1 mx-auto flex items-center justify-between px-6 md:px-10 h-full">
         {/* Logo */}
         <Link href="/" className="flex items-center group ">
           <span
@@ -44,21 +36,49 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-      <ul className={`hidden md:flex items-center gap-16 text-[18px] font-plus-jakarta-sans font-medium`}>
-
-          {navItems.map((item) => (
-            <li key={item.name}>
-              <Link
-                href={item.href}
-                className="hover:text-gray-300 transition-colors"
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
+       
+        <ul className="hidden md:flex justify-center items-center text-secondary items-center ml-16   gap-20 text-[18px] font-plus-jakarta-sans font-semibold">
+          <li>
+            <Link href="#" className="hover:text-gray-300 transition-colors">
+              CLASS
+            </Link>
+          </li>
+          <li>
+            <Link href="#" className="hover:text-gray-300 transition-colors">
+              캘린더
+            </Link>
+          </li>
+          <li>
+            <Link href="#" className="hover:text-gray-300 transition-colors">
+              STORE
+            </Link>
+          </li>
+          <li>
+            <Link href="#" className="hover:text-gray-300 transition-colors">
+              제휴
+            </Link>
+          </li>
+          <li>
+            <Link href="#" className="hover:text-gray-300 transition-colors">
+              고객센터
+            </Link>
+          </li>
+          <li> <div className=" relative flex items-center gap-2 text-[16px]">
+            <div className={`w-8 h-8 absolute ml-2 ${phenomena.className}  rounded-full bg-white text-black text-[22px] flex items-center justify-center font-bold`}>
+              LC
+            </div>
+            <span className="ml-6 pl-6 py-1 bg-gray-900 px-2 rounded-tl-sm rounded-bl-sm font-semibold text-[18px]">홍길동님</span>
+          </div>
+          </li>
+          <li> <button className=" items-center w-8 h-8  transition">
+            <img src="/msg.png" alt="" />
+          </button></li>
         </ul>
 
-        {/* Mobile Menu Button */}
+       
+       
+
+          {/* Mobile Menu Button */}
         <button
           className="md:hidden flex items-center justify-center p-2"
           onClick={() => setIsOpen(!isOpen)}
@@ -75,17 +95,72 @@ export default function Navbar() {
         }`}
       >
         <ul className="flex flex-col items-center gap-6 py-6 text-[16px] font-medium">
-          {navItems.map((item) => (
-            <li key={item.name}>
-              <Link
-                href={item.href}
-                className="hover:text-gray-300 transition-colors"
-                onClick={() => setIsOpen(false)}
+          <li>
+            <Link
+              href="#"
+              className="hover:text-gray-300 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              CLASS
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="#"
+              className="hover:text-gray-300 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              캘린더
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="#"
+              className="hover:text-gray-300 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              STORE
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="#"
+              className="hover:text-gray-300 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              제휴
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="#"
+              className="hover:text-gray-300 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              고객센터
+            </Link>
+          </li>
+
+          {/* Profile */}
+          <li>
+            <div className="relative flex items-center gap-2 text-[16px]">
+              <div
+                className={`w-8 h-8 absolute ml-2 ${phenomena.className} rounded-full bg-white text-black text-[22px] flex items-center justify-center font-bold`}
               >
-                {item.name}
-              </Link>
-            </li>
-          ))}
+                LC
+              </div>
+              <span className="ml-6 pl-6 py-1 bg-gray-900 px-2 rounded-tl-md rounded-bl-md font-semibold text-[18px]">
+                홍길동님
+              </span>
+            </div>
+          </li>
+
+          {/* Message Icon */}
+          <li>
+            <button className="w-8 h-8 transition">
+              <img src="/msg.png" alt="messages" />
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
