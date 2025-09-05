@@ -1,19 +1,12 @@
-"use client";
-
 import StorePage from "@/components/home/page";
+import PaymentManagement from "@/components/My page/PaymentManagement/page";
 import LearningStatus from "@/components/My page/LearningStatus/page";
-import AccountForm from "@/components/My page/AccountSettings/Account_Form/page";
-import ChangePassword from "@/components/My page/AccountSettings/ChangePassword/page"
+import MyPage from "@/components/My page/page";
 
-function page() {
+export default function HomePage() {
   return (
-    <div className="min-h-screen flex items-center justify-center flex-col">
+    <div className="min-h-screen">
       <StorePage />
-      <LearningStatus />
-      <AccountForm/>
-      <ChangePassword/>
     </div>
   );
 }
-
-export default page;

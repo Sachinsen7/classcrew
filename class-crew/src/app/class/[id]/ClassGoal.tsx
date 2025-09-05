@@ -1,7 +1,7 @@
 import React from "react";
 
 function ClassGoal() {
-  return <div>ClassGoal</div>;
+  return <div></div>;
 }
 
 export default ClassGoal;

@@ -1,10 +1,11 @@
-import StorePage from "@/components/home/page";
 import Navbar from "@/components/layout/navbar/page";
-export default function Store() {
+import MyPage from "@/components/My page/page";
+
+export default function MyPageRoute() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <StorePage />
+      <MyPage />
     </div>
   );
 }
