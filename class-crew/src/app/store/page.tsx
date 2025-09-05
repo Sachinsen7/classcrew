@@ -1,9 +1,10 @@
-export default function StorePage() {
+import StorePage from "@/components/home/page";
+import Navbar from "@/components/layout/navbar/page";
+export default function Store() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <h1 className="text-2xl font-bold">Storehhhhhhhhhhhhhhhhhh Page</h1>
-      
+    <div className="min-h-screen">
+      <Navbar />
+      <StorePage />
     </div>
   );
 }
-

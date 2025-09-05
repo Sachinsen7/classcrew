@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import ReusableTable from "@/components/ui/TableProps/Table";
+
 import downloadIcon from "../../../../public/My page/symbols_download.svg";
 import dropdown from "../../../../public/My page/drop-down.svg";
 
@@ -23,7 +24,7 @@ export default function PaymentManagement() {
       no: 2,
       course: "[중분류] 교육 과정명",
       date: "2025.00.00",
-      mypage: "-",
+      mypage: "-", // empty column
       price: "300,000 원",
       discount: "270,000 원",
       total: "270,000 원",
@@ -36,7 +37,7 @@ export default function PaymentManagement() {
       no: 1,
       course: "[중분류] 교육 과정명",
       date: "2025.00.00",
-      mypage: "-",
+      mypage: "-", // empty column
       price: "300,000 원",
       discount: "300,000 원",
       total: "300,000 원",
@@ -46,8 +47,8 @@ export default function PaymentManagement() {
   ];
 
   return (
-    <main className="w-[1270px] mx-auto mt-6 flex flex-col  mb-10">
-      {/* Banner */}
+    <main className="w-[1270px] mt-6 flex flex-col items-center mb-10">
+      {/* Banner with heading */}
       <div className="relative w-full">
         <Image
           src="/My page/Rectangle 23864.png"
@@ -63,25 +64,34 @@ export default function PaymentManagement() {
       </div>
 
       {/* Tabs */}
-      <div>
-        <nav className="flex items-start gap-8 border-b border-gray-300 mt-8">
-          <button className="pb-2 text-[20px] font-bold cursor-pointer">
-            학습현황
-          </button>
-          <button className="pb-2 border-b-2 border-black text-[20px] font-bold cursor-pointer">
-            결제관리
-          </button>
-          <button className="pb-2 text-[20px] font-bold cursor-pointer">
-            1:1문의내역
-          </button>
-          <button className="pb-2 text-[20px] font-bold cursor-pointer">
-            계정설정
-          </button>
-        </nav>
+      <nav className="flex justify-between gap-8 border-b border-gray-300 w-[1270px] mt-8">
+        <button className="pb-2 text-[20px] font-bold cursor-pointer">
+          학습현황
+        </button>
+        <button className="pb-2 border-b-2 border-black text-[20px] font-bold cursor-pointer">
+          결제관리
+        </button>
+        <button className="pb-2 text-[20px] font-bold cursor-pointer">
+          1:1문의내역
+        </button>
+        <button className="pb-2 text-[20px] font-bold cursor-pointer">
+          계정설정
+        </button>
+      </nav>
+
+      {/* Sub buttons */}
+      <div className="flex w-full gap-3 mt-6 justify-start">
+        <button className="px-6 py-2 bg-black text-white font-bold">
+          결제내역
+        </button>
+        <button className="px-6 py-2 bg-gray-100 font-bold">
+          취소/환불내역
+        </button>
+        <button className="px-6 py-2 bg-gray-100 font-bold">STORE</button>
       </div>
 
       {/* Dropdown */}
-      <div className="w-[1270px] mx-auto flex justify-end mt-14 pr-4">
+      <div className="w-full flex justify-end mt-14 pr-4">
         <span className="text-[14px] font-bold">조회기간 설정</span>
         <Image
           src={dropdown}
@@ -92,12 +102,14 @@ export default function PaymentManagement() {
         />
       </div>
 
-      {/* Table + Icons */}
-      <div className="w-[1270px] mx-auto flex mt-10">
+      {/* Table + right-side icons */}
+      <div className="w-[1320px] flex mt-10 ml-10">
+        {/* Table */}
         <div className="flex-1">
           <ReusableTable columns={columns} rows={rows} />
         </div>
 
+        {/* Right-side icons */}
         <div className="flex flex-col items-center justify-center gap-4 ml-6">
           <Image
             src="/My page/up-arrow.svg"

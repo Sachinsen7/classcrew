@@ -176,27 +176,6 @@ export default function CourseDetailPage() {
         </div>
       </div>
 
-      {/* <nav className="">
-        <Link
-          href="/mypage/learning-status"
-          className="pb-2 text-[20px] font-bold"
-        >
-          학습현황
-        </Link>
-        <Link
-          href="/mypage/payment-management/history"
-          className="pb-2 text-[20px] font-bold"
-        >
-          결제관리
-        </Link>
-        <Link href="/mypage/inquiry" className="pb-2 text-[20px] font-bold">
-          1:1문의내역
-        </Link>
-        <Link href="/mypage/account" className="pb-2 text-[20px] font-bold">
-          계정설정
-        </Link>
-      </nav> */}
-
       {/* Tab Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <ActiveComponent />

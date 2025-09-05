@@ -65,7 +65,7 @@ export default function LearningStatus() {
   return (
     <>
       {/* Dropdown aligned right */}
-      <div className="w-[1270px] mx-auto flex justify-end mt-14 pr-4">
+      <div className="w-full flex justify-end mt-14 pr-4">
         <span className="text-[14px] font-bold">조회기간 설정</span>
         <Image
           src={dropdown}
@@ -77,7 +77,7 @@ export default function LearningStatus() {
       </div>
 
       {/* Table with right-side icons */}
-      <div className="w-[1270px] mx-auto flex mt-10">
+      <div className="w-[1320px] flex mt-10 ml-10">
         <div className="flex-1">
           <ReusableTable columns={columns} rows={rows} />
         </div>
