@@ -46,7 +46,7 @@ export default function MyPageLayout({
   ];
 
   return (
-    <main className="w-[1270px] mx-auto mt-6 flex flex-col items-center justify-center mb-10">
+    <main className="w-[1270px] mx-auto mt-30 flex flex-col items-center justify-center mb-10">
       {/* Banner */}
       <div className="relative w-full">
         <Image
