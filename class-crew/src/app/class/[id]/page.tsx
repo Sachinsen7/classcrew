@@ -32,10 +32,7 @@ export default function CourseDetailPage() {
     <div className="min-h-screen w-[1270px">
       <Navbar />
 
-      {/* Course Header */}
-
       <div className="w-[1270px] mx-auto flex gap-8 mt-30">
-        {/* Left Side Image */}
         <div className="w-[400px] h-[400px] overflow-hidden rounded-2xl">
           <Image
             src="/class-goal/main-image.png"
@@ -46,19 +43,15 @@ export default function CourseDetailPage() {
           />
         </div>
 
-        {/* Right Side Content */}
         <div className="flex-1 bg-white border border-[#D9D9D9] rounded-2xl p-6 relative">
-          {/* Top path */}
           <p className="text-[18px] font-bold text-[#000000]">
             대분류 &gt; 중분류
           </p>
 
-          {/* Title */}
           <h2 className="text-[32px] text-[#000000] font-bold mt-2 leading-snug">
             핵심을 짚는 말과 글, 비즈니스 문해력 Level Up
           </h2>
 
-          {/* Details */}
           <div className="mt-6 space-y-3 text-sm text-gray-800">
             <div className="flex gap-10">
               <span className="w-[80px] text-[#000000] font-bold">
@@ -87,14 +80,7 @@ export default function CourseDetailPage() {
               <span className="w-[80px] text-[#000000] font-bold">
                 교육일정
               </span>
-              {/* <select
-                name="dobDay"
-                className="w-full h-[60px] border border-[#DDDDDD] px-3 py-2 rounded-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary"
-              ></select>
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-primary">
-                <FaCaretDown size={20} />
-                         
-              </span> */}
+
               {/*  */}
               <div className="relative w-[300px]">
                 <select className="w-full h-[60px] border border-[#DDDDDD] px-3 py-2 rounded-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary">
@@ -109,7 +95,6 @@ export default function CourseDetailPage() {
             <div className="border-b border-[#D9D9D9] mt-5"></div>
           </div>
 
-          {/* Buttons */}
           <div className="flex gap-3 mt-6">
             <button className="px-4 py-1 text-sm rounded-md font-bold bg-[#E7E7E7] text-[#000000]">
               환급
@@ -125,7 +110,6 @@ export default function CourseDetailPage() {
             </button>
           </div>
 
-          {/* Top Right Icons */}
           <div className="absolute top-4 right-4 flex gap-3">
             <button>
               <Image
@@ -155,7 +139,6 @@ export default function CourseDetailPage() {
         </div>
       </div>
 
-      {/* Tab Navigation */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex justify-between gap-8  border-gray-300 w-full mt-8">
@@ -176,7 +159,6 @@ export default function CourseDetailPage() {
         </div>
       </div>
 
-      {/* Tab Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <ActiveComponent />
       </div>
