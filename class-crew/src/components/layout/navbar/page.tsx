@@ -39,7 +39,7 @@ export default function Navbar() {
        
         <ul className="hidden md:flex justify-center items-center text-secondary items-center ml-16   gap-20 text-[18px] font-plus-jakarta-sans font-semibold">
           <li>
-            <Link href="#" className="hover:text-gray-300 transition-colors">
+            <Link href="/class" className="hover:text-gray-300 transition-colors">
               CLASS
             </Link>
           </li>
@@ -97,7 +97,7 @@ export default function Navbar() {
         <ul className="flex flex-col items-center gap-6 py-6 text-[16px] font-medium">
           <li>
             <Link
-              href="#"
+              href="/class"
               className="hover:text-gray-300 transition-colors"
               onClick={() => setIsOpen(false)}
             >
