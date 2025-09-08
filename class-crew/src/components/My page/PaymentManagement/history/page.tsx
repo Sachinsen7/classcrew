@@ -3,6 +3,7 @@
 import ReusableTable from "@/components/ui/TableProps/Table";
 import Image from "next/image";
 import dropdown from "../../../../../public/My page/drop-down.svg";
+import downloadIcon from "../../../../../public/My page/symbols_download.svg";
 
 export default function PaymentHistory() {
   const columns = [
@@ -40,8 +41,9 @@ export default function PaymentHistory() {
   ];
 
   return (
-    <>
-      <div className="w-[1270px] mx-auto flex justify-end mt-14 pr-4">
+    <div className="w-full mt-10">
+      {/* Dropdown */}
+      <div className="w-full flex justify-end mt-14 pr-4">
         <span className="text-[14px] font-bold">조회기간 설정</span>
         <Image
           src={dropdown}
@@ -52,11 +54,11 @@ export default function PaymentHistory() {
         />
       </div>
 
-      <div className="w-[1270px] mx-auto flex mt-10 gap-6">
-        <div className="flex-1">
-          <ReusableTable columns={columns} rows={rows} />
-        </div>
+      {/* Table */}
+      <div className="w-[1320px] flex mt-10 ml-10">
+        <ReusableTable columns={columns} rows={rows} />
 
+        {/* Right-side icons */}
         <div className="flex flex-col items-center justify-center gap-4 ml-6">
           <Image
             src="/My page/up-arrow.svg"
@@ -73,6 +75,6 @@ export default function PaymentHistory() {
           <Image src="/My page/chat.svg" alt="Chat" width={20} height={20} />
         </div>
       </div>
-    </>
+    </div>
   );
 }
