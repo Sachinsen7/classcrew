@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 import Navbar from "@/components/layout/navbar/page";
 import ClassGoal from "./ClassGoal";
@@ -8,8 +8,9 @@ import Curriculum from "./Curriculum";
 import Recommend from "./Recommend";
 import Instructor from "./Instructor";
 import Promotion from "./Promotion";
-import Image from "next/image";
 import Footer from "@/components/layout/footer/page";
+import Image from "next/image";
+import { FaCaretDown } from "react-icons/fa";
 
 const tabs = [
   { id: "class-goal", label: "CLASS GOAL", component: ClassGoal },
@@ -19,21 +20,53 @@ const tabs = [
   { id: "promotion", label: "PROMOTION", component: Promotion },
 ];
 
-import { FaCaretDown } from "react-icons/fa";
-
 export default function CourseDetailPage() {
   const params = useParams();
   const courseId = params.id;
   const [activeTab, setActiveTab] = useState("class-goal");
 
-  const ActiveComponent =
-    tabs.find((tab) => tab.id === activeTab)?.component || ClassGoal;
+  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+
+  // Assume your navbar height in px; adjust this value based on your Navbar component's actual height
+  const navbarHeight = 60; // Example: 60px; change to match your navbar's height
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveTab(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    tabs.forEach((tab) => {
+      const section = sectionRefs.current[tab.id];
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleTabClick = (id: string) => {
+    setActiveTab(id);
+    sectionRefs.current[id]?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <div className="min-h-screen w-[1270px">
+    <div className="min-h-screen w-full mx-auto bg-white">
       <Navbar />
 
-      <div className="w-[1270px] mx-auto flex gap-8 mt-30">
+      {/* Fixed cover for the 30px gap to hide scrolling content */}
+      <div
+        className="fixed left-0 w-full bg-white z-40"
+        style={{ top: `${navbarHeight}px`, height: "30px" }}
+      ></div>
+
+      {/* Course Info Section */}
+      <div className="flex gap-8 mt-[100px] px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="w-[400px] h-[400px] overflow-hidden rounded-2xl">
           <Image
             src="/class-goal/main-image.png"
@@ -45,44 +78,35 @@ export default function CourseDetailPage() {
         </div>
 
         <div className="flex-1 bg-white border border-[#D9D9D9] rounded-2xl p-6 relative">
-          <p className="text-[18px] font-bold text-[#000000]">
-            대분류 &gt; 중분류
-          </p>
+          <p className="text-[18px] font-bold text-black">대분류 &gt; 중분류</p>
 
-          <h2 className="text-[32px] text-[#000000] font-bold mt-2 leading-snug">
+          <h2 className="text-[32px] text-black font-bold mt-2 leading-snug">
             핵심을 짚는 말과 글, 비즈니스 문해력 Level Up
           </h2>
 
           <div className="mt-6 space-y-3 text-sm text-gray-800">
             <div className="flex gap-10">
-              <span className="w-[80px] text-[#000000] font-bold">
-                교육대상
-              </span>
+              <span className="w-[80px] font-bold text-black">교육대상</span>
               <span>
                 입사 3년차 미만 주니어, 신입사원, 누구나, 교육 대상 <br />은
                 2줄이 될 수 있음을 감안
               </span>
             </div>
             <div className="flex gap-10">
-              <span className="w-[80px] text-[#000000] font-bold">
-                교육시간
-              </span>
+              <span className="w-[80px] font-bold text-black">교육시간</span>
               <span>12시간(1일차 8시간, 2일차 4시간)</span>
             </div>
             <div className="flex gap-10">
-              <span className="w-[80px] text-[#000000] font-bold">교육비</span>
+              <span className="w-[80px] font-bold text-black">교육비</span>
               <span>60만원(중식 및 교보재 포함)</span>
             </div>
             <div className="flex gap-10">
-              <span className="w-[80px] text-[#000000] font-bold">교육장</span>
+              <span className="w-[80px] font-bold text-black">교육장</span>
               <span>러닝크루 성수 CLASS</span>
             </div>
             <div className="flex items-center gap-10">
-              <span className="w-[80px] text-[#000000] font-bold">
-                교육일정
-              </span>
+              <span className="w-[80px] font-bold text-black">교육일정</span>
 
-              {/*  */}
               <div className="relative w-[300px]">
                 <select className="w-full h-[60px] border border-[#DDDDDD] px-3 py-2 rounded-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary">
                   <option value="">일정 보기 및 선택</option>
@@ -93,11 +117,11 @@ export default function CourseDetailPage() {
               </div>
             </div>
 
-            <div className="border-b border-[#D9D9D9] mt-5"></div>
+            <div className="border-b border-[#D9D9D9] mt-5" />
           </div>
 
           <div className="flex gap-3 mt-6">
-            <button className="px-4 py-1 text-sm rounded-md font-bold bg-[#E7E7E7] text-[#000000]">
+            <button className="px-4 py-1 text-sm rounded-md font-bold bg-[#E7E7E7] text-black">
               환급
             </button>
             <button className="px-5 py-1 bg-black text-white font-bold rounded-lg">
@@ -140,14 +164,17 @@ export default function CourseDetailPage() {
         </div>
       </div>
 
-      <div className="bg-white border-b">
+      <div
+        className="bg-white border-b sticky z-50 mt-[30px]"
+        style={{ top: `${navbarHeight + 30}px` }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex justify-between gap-8  border-gray-300 w-full mt-8">
+          <nav className="flex justify-between gap-8 border-gray-300 w-full mt-8">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`py-4 px-1 border-b-2 pb-2 text-[20px] font-bold ${
+                onClick={() => handleTabClick(tab.id)}
+                className={`py-4 px-1 border-b-2 text-[20px] font-bold ${
                   activeTab === tab.id
                     ? "border-gray-900 text-gray-800"
                     : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
@@ -160,8 +187,22 @@ export default function CourseDetailPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <ActiveComponent />
+      <div className="max-w-7xl mx-auto px-4 py-8 space-y-20 bg-white">
+        {tabs.map((tab) => {
+          const Component = tab.component;
+          return (
+            <section
+              key={tab.id}
+              id={tab.id}
+              ref={(el) => {
+                sectionRefs.current[tab.id] = el;
+              }}
+              className="min-h-screen"
+            >
+              <Component />
+            </section>
+          );
+        })}
       </div>
 
       <Footer />
