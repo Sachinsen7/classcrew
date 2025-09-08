@@ -92,7 +92,10 @@ export default function StorePage() {
       <SearchBanner
         bgImage="/images/Block_with_illustration.png"
         title="추천CLASS찾기"
+        description=""
         buttonText="검색"
+        height="h-[130px]"
+        width="w-[1245px]"
         onSearch={() => console.log("Searching with:", theme, job)}
         filters={[
           {
