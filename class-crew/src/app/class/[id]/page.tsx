@@ -27,8 +27,7 @@ export default function CourseDetailPage() {
 
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
-  // Assume your navbar height in px; adjust this value based on your Navbar component's actual height
-  const navbarHeight = 60; // Example: 60px; change to match your navbar's height
+  const navbarHeight = 60;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,13 +58,11 @@ export default function CourseDetailPage() {
     <div className="min-h-screen w-full mx-auto bg-white">
       <Navbar />
 
-      {/* Fixed cover for the 30px gap to hide scrolling content */}
       <div
         className="fixed left-0 w-full bg-white z-40"
         style={{ top: `${navbarHeight}px`, height: "30px" }}
       ></div>
 
-      {/* Course Info Section */}
       <div className="flex gap-8 mt-[100px] px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="w-[400px] h-[400px] overflow-hidden rounded-2xl">
           <Image
