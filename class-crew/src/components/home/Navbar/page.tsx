@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import { colors } from "@/app/colors";
 
 export default function NavBar() {
@@ -32,12 +33,50 @@ export default function NavBar() {
     underlineRef.current.style.width = `${offsetWidth}px`;
   }, [activeIndex, hoverIndex]);
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  } as const;
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.4, ease: "easeOut" as const },
+    },
+  } as const;
+
   return (
-    <nav className="max-w-8xl w-full bg-[var(--background)] border-b border-[var(--secondary)] py-4 mt-6">
-      <ul className="flex justify-center gap-40 max-w-8xl mx-auto font-extrabold relative">
+    <motion.nav
+      className="max-w-8xl w-full bg-[var(--background)] border-b border-[var(--secondary)] py-4 mt-6"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <motion.ul
+        className="flex justify-center gap-40 max-w-8xl mx-auto font-extrabold relative"
+        variants={containerVariants}
+      >
         {items.map((item, index) => (
-          <li key={index}>
-            <a
+          <motion.li
+            key={item}
+            variants={itemVariants}
+            whileHover={{
+              y: -5,
+              scale: 1.05,
+              color: "var(--primary)",
+            }}
+            transition={{ duration: 0.3, ease: "easeOut" as const }}
+          >
+            <motion.a
               ref={(el) => {
                 navRefs.current[index] = el;
               }}
@@ -49,16 +88,20 @@ export default function NavBar() {
               onMouseEnter={() => setHoverIndex(index)}
               onMouseLeave={() => setHoverIndex(null)}
               aria-current={activeIndex === index ? "page" : undefined}
+              whileTap={{ scale: 0.95 }}
             >
               {item}
-            </a>
-          </li>
+            </motion.a>
+          </motion.li>
         ))}
-        <div
+        <motion.div
           ref={underlineRef}
           className="absolute -bottom-[1px] h-1 bg-[var(--primary)] transition-all duration-300 ease-in-out"
+          initial={{ scaleX: 0, originX: 0 }}
+          animate={{ scaleX: activeIndex !== null ? 1 : 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" as const }}
         />
-      </ul>
-    </nav>
+      </motion.ul>
+    </motion.nav>
   );
 }
