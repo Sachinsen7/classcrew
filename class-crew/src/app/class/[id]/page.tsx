@@ -9,6 +9,7 @@ import Recommend from "./Recommend";
 import Instructor from "./Instructor";
 import Promotion from "./Promotion";
 import Image from "next/image";
+import Footer from "@/components/layout/footer/page";
 
 const tabs = [
   { id: "class-goal", label: "CLASS GOAL", component: ClassGoal },
@@ -162,6 +163,8 @@ export default function CourseDetailPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <ActiveComponent />
       </div>
+
+      <Footer />
     </div>
   );
 }
