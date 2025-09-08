@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 type ButtonProps = {
   label: string;
@@ -26,13 +27,30 @@ export default function Button({
       "border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white",
   };
 
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
+      transition: { duration: 0.2 },
+    },
+    tap: { scale: 0.98 },
+    rest: { scale: 1 },
+  };
+
   return (
-    <button
+    <motion.button
       type={type}
       onClick={onClick}
       className={`${baseStyle} ${variants[variant]} ${className}`}
+      variants={buttonVariants}
+      whileHover="hover"
+      whileTap="tap"
+      whileFocus={{ scale: 1.02 }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
     >
       {label}
-    </button>
+    </motion.button>
   );
 }
