@@ -16,14 +16,14 @@ export default function CustomerserviceCenterLayout({
 
  
   const tabs = [
-    { href: "/customerservicecenter/announcement", label: "announcement" },
-    { href: "/customerservicecenter/enquiry", label: "enquiry" },
-    { href: "/customerservicecenter/faq", label: "faq" },
-      { href: "/customerservicecenter/checkcoursehistory", label: "checkcoursehistory" },
+    { href: "/customerservicecenter/announcement", label: "공지사항" },
+    { href: "/customerservicecenter/enquiry", label: "1:1 문의" },
+    { href: "/customerservicecenter/faq", label: "FAQ" },
+      { href: "/customerservicecenter/checkcoursehistory", label: "수강 이력 조회" },
   ];
 
   return (
-    <main className="w-[1270px] mx-auto mt-20 flex flex-col items-center justify-center mb-10">
+    <main className="w-[1270px] mx-auto mt-20 flex flex-col items-center justify-center mb-10 ">
      
      <div className=" bg-white ">
         <div className="flex justify-center items-center h-[130px] ">
@@ -33,12 +33,12 @@ export default function CustomerserviceCenterLayout({
         </div></div>
 
       {/* Tabs */}
-      <nav className="flex justify-between gap-8 border-b border-gray-300 w-[1270px] mt-8">
+      <nav className="flex justify-between gap-8  border-[#D9D9D9] w-[1200px] mt-8">
         {tabs.map((tab) => (
           <Link
             key={tab.href}
             href={tab.href}
-            className={`pb-2 text-[20px] font-bold ${
+            className={`pb-2 text-[18px] font-bold text-gray-500 ${
               pathname.startsWith(tab.href) ? "border-b-2 border-black" : ""
             }`}
           >
@@ -46,6 +46,8 @@ export default function CustomerserviceCenterLayout({
           </Link>
         ))}
       </nav>
+
+      <div className="border-b border-[2px] text-[#D9D9D9] w-full " ></div>
 
 
 
