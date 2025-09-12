@@ -12,13 +12,11 @@ const page = () => {
         </div>
 
         <div className=" py-5">
-          {/* Notice */}
           <p className="text-right text-[18px] font-bold  text-[rgba(0,0,0,0.72)] mb-4">
             <span className="text-red-500">*</span> 항목은 필수 입력 항목입니다.
           </p>
 
           <form className="space-y-6 mt-10">
-            {/* 성함 */}
             <div className="flex items-center">
               <label className="w-[55px] h-[24px]  text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
                 성함 <span className="text-red-500">*</span>
@@ -30,7 +28,6 @@ const page = () => {
               />
             </div>
 
-            {/* 연락처 */}
             <div className="flex items-center">
               <label className="w-[80px] h-[24px]  text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
                 연락처 <span className="text-red-500">*</span>
@@ -58,7 +55,6 @@ const page = () => {
               </div>
             </div>
 
-            {/* 이메일 */}
             <div className="flex items-center">
               <label className="w-[80px] h-[24px]  text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
                 이메일 <span className="text-red-500">*</span>
@@ -84,7 +80,6 @@ const page = () => {
               </div>
             </div>
 
-            {/* 회사명 */}
             <div className="flex items-center ">
               <label className="w-[80px] h-[24px]  text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
                 회사명
@@ -93,7 +88,6 @@ const page = () => {
             </div>
             <div className="w-[973px] h-[1px] border-b border-[#D9D9D9] ml-2 mt-8 mb-8"></div>
 
-            {/* 문의 구분 */}
             <div className="flex items-center">
               <label className="w-[96px] h-[24px]  text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
                 문의 구분 <span className="text-red-500">*</span>
@@ -105,7 +99,6 @@ const page = () => {
               </select>
             </div>
 
-            {/* 제목 */}
             <div className="flex items-center">
               <label className="w-[96px] h-[24px]  text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
                 제목 <span className="text-red-500">*</span>
@@ -113,7 +106,6 @@ const page = () => {
               <input className=" w-[972px] h-[44px] border border-[rgba(84, 76, 76, 0.14)] bg-[#F3F3F3] rounded px-3 py-2 ml-4 "/>
             </div>
 
-            {/* 문의 내용 */}
             <div className="flex items-start">
               <label className="w-[96px] h-[24px]  text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
                 문의 내용 <span className="text-[#FF0000]">*</span>
@@ -121,7 +113,6 @@ const page = () => {
               <textarea className=" w-[972px] h-[44px] border border-[rgba(84, 76, 76, 0.14)] bg-[#F3F3F3] rounded px-3 py-2 ml-4 " />
             </div>
 
-            {/* 첨부파일 */}
             <div className="flex items-center">
               <label className="w-[96px] h-[24px]  text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
                 첨부파일
@@ -140,14 +131,12 @@ const page = () => {
                 </p>
               </div>
             </div>
-{/* 자동방지글 */}
 <div className="flex items-start">
   <label className="w-[106px] h-[24px] text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
     자동방지글 <span className="text-[#FF0000]">*</span>
   </label>
 
   <div className="flex-1 flex flex-col gap-2">
-    {/* Text wala div */}
     <div className="bg-gray-800 w-[97px] h-[49px] ml-2 text-white py-3 px-6 justify-center items-center text-[14px] font-semibold">
       b2d473
     </div>
@@ -164,7 +153,6 @@ const page = () => {
 
            
 
-            {/* 개인정보 동의 */}
             <div className="flex items-center gap-2 ml-32">
               <input type="checkbox" id="privacy"  className="w-6 h-6 accent-black" />
               <label htmlFor="privacy" className="text-[18px] font-semibold">
@@ -172,7 +160,6 @@ const page = () => {
               </label>
             </div>
 
-            {/* 제출 버튼 */}
             <div className="flex justify-center">
               <button
                 type="submit"
