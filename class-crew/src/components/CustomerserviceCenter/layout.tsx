@@ -11,15 +11,13 @@ export default function CustomerserviceCenterLayout({
 }) {
   const pathname = usePathname();
 
-  // Banner config by route
  
 
- 
   const tabs = [
     { href: "/customerservicecenter/announcement", label: "공지사항" },
     { href: "/customerservicecenter/enquiry", label: "1:1 문의" },
     { href: "/customerservicecenter/faq", label: "FAQ" },
-      { href: "/customerservicecenter/checkcoursehistory", label: "수강 이력 조회" },
+    { href: "/customerservicecenter/checkcoursehistory", label: "수강 이력 조회" },
   ];
 
   return (
@@ -32,7 +30,6 @@ export default function CustomerserviceCenterLayout({
           </span>
         </div></div>
 
-      {/* Tabs */}
       <nav className="flex justify-between gap-8  border-[#D9D9D9] w-[1200px] mt-8">
         {tabs.map((tab) => (
           <Link
@@ -51,7 +48,6 @@ export default function CustomerserviceCenterLayout({
 
 
 
-      {/* Page Content */}
       {children}
     </main>
   );

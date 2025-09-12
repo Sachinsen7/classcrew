@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link";
 import React, { useState } from "react";
 
 const InquiryForm: React.FC = () => {
@@ -42,14 +43,11 @@ const InquiryForm: React.FC = () => {
         </label>
       </div>
 
-      {/* Info Text */}
       <p className="text-[#FF0000] font-extrabold mb-16 text-center text-[24px]">
         현재는 개인별 조회만 가능합니다. 기업 조회는 {" "} 02-6914-9353으로 문의 부탁드립니다.
       </p>
 
-      {/* Form */}
       <form className=" w-[580px]  space-y-10">
-        {/* Phone */}
         <div>
           <label className="block text-[18px] text-[#242424] font-semibold mb-2 ">휴대전화번호</label>
           <div className="flex ">
@@ -80,7 +78,6 @@ const InquiryForm: React.FC = () => {
 
         <div className="border-b border-gray-300"></div>
 
-        {/* Email */}
         <div>
             <label className="block text-[18px] text-[#242424] font-semibold mb-2">이메일</label>
           <div className="flex items-center space-x-2">
@@ -108,7 +105,6 @@ const InquiryForm: React.FC = () => {
         
         <div className="border-b border-gray-300"></div>
 
-        {/* Name */}
         <div>
            <label className="block text-[18px] text-[#242424] font-semibold mb-2">  이름</label>
           <input
@@ -118,13 +114,14 @@ const InquiryForm: React.FC = () => {
           />
         </div>
 
-        {/* Submit */}
+        <Link href={'/customerservicecenter/checkcoursehistory/coursehistorylist'}>
         <button
           type="submit"
           className="w-[134px] h-[44px]  bg-black text-white py-3 text-[18px] rounded font-semibold justify-center items-center flex mx-auto"
         >
           확인
         </button>
+        </Link>
       </form>
     </div>
   );
