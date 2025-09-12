@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link";
 import React, { useState } from "react";
 
 const InquiryForm: React.FC = () => {
@@ -119,12 +120,14 @@ const InquiryForm: React.FC = () => {
         </div>
 
         {/* Submit */}
+        <Link href={'/customerservicecenter/checkcoursehistory/coursehistorylist'}>
         <button
           type="submit"
           className="w-[134px] h-[44px]  bg-black text-white py-3 text-[18px] rounded font-semibold justify-center items-center flex mx-auto"
         >
           확인
         </button>
+        </Link>
       </form>
     </div>
   );
