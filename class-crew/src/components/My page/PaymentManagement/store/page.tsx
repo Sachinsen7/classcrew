@@ -4,8 +4,17 @@ import ReusableTable from "@/components/ui/TableProps/Table";
 import Image from "next/image";
 import dropdown from "../../../../../public/My page/drop-down.svg";
 
+type Row = {
+  no: number;
+  product: string;
+  date: string;
+  amount: string;
+  status: string;
+  tracking: React.ReactNode;
+};
+
 export default function StorePage() {
-  const columns = [
+  const columns: { key: keyof Row; label: string }[] = [
     { key: "no", label: "No." },
     { key: "product", label: "상품명" },
     { key: "date", label: "결제일" },
@@ -14,7 +23,7 @@ export default function StorePage() {
     { key: "tracking", label: "" },
   ];
 
-  const rows = [
+  const rows: Row[] = [
     {
       no: 4,
       product: "상품명",
@@ -69,7 +78,7 @@ export default function StorePage() {
 
       <div className="w-[1270px] mx-auto flex items-center mt-10">
         <div className="flex-1">
-          <ReusableTable columns={columns} rows={rows} />
+          <ReusableTable<Row> columns={columns} rows={rows} />
         </div>
 
         <div className="flex flex-col items-center justify-center gap-4 ml-6">

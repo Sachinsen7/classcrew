@@ -174,7 +174,7 @@ export default function Navbar() {
             <motion.button
               className="w-8 h-8 transition"
               whileHover={{ rotate: 180 }}
-              transition={{ duration: 0.6}}
+              transition={{ duration: 0.6 }}
             >
               <img src="/msg.png" alt="messages" />
             </motion.button>

@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -15,6 +14,7 @@ import { FaCaretDown } from "react-icons/fa";
 import { Calendar, Share2, Download, Calendar1 } from "lucide-react";
 import { courses } from "@/data/courses"; 
 
+
 const tabs = [
   { id: "class-goal", label: "CLASS GOAL", component: ClassGoal },
   { id: "curriculum", label: "CURRICULUM", component: Curriculum },
@@ -27,12 +27,15 @@ export default function CourseDetailPage() {
   const params = useParams();
   const courseId = params.id as string;
 
-  // ✅ find course by ID
   const course = courses.find((c) => c.id === courseId);
 
   const [activeTab, setActiveTab] = useState("class-goal");
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
   const navbarHeight = 60;
+  const spacerHeight = 30;
+  const stickyNavHeight = 30;
+  const totalOffset = navbarHeight + spacerHeight + stickyNavHeight;
+  const paddingAdjustment = 40;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,7 +46,7 @@ export default function CourseDetailPage() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5, rootMargin: `-${totalOffset}px 0px 0px 0px` }
     );
 
     tabs.forEach((tab) => {
@@ -52,11 +55,19 @@ export default function CourseDetailPage() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [totalOffset]);
 
   const handleTabClick = (id: string) => {
     setActiveTab(id);
-    sectionRefs.current[id]?.scrollIntoView({ behavior: "smooth" });
+    const section = sectionRefs.current[id];
+    if (section) {
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      // Subtract total offset and a small adjustment for padding/margin
+      window.scrollTo({
+        top: sectionTop - totalOffset - paddingAdjustment,
+        behavior: "smooth",
+      });
+    }
   };
 
   if (!course) {
@@ -79,7 +90,7 @@ export default function CourseDetailPage() {
       <div className="flex gap-8 mt-[130px] w-[1270px] px-4 sm:px-6 lg:px-8  mx-auto">
         <div className="w-[458px] h-[460px] overflow-hidden rounded-2xl">
           <Image
-            src={course.image}   
+            src={course.image ?? "/class-goal/main-image.png"}
             alt={course.title}
             width={400}
             height={400}
@@ -103,26 +114,37 @@ export default function CourseDetailPage() {
 <div className="border-b border-gray-300  mt-2 w-[601px] ml-1 border-2"></div>
           <div className="mt-6 space-y-3 text-[18px] text-rgba(62, 62, 62, 0.72)">
             <div className="flex gap-10">
-              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">교육대상</span>
+              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">
+                교육대상
+              </span>
               <span>{course.description}</span>
             </div>
             <div className="flex gap-10">
-              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">교육시간</span>
+              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">
+                교육시간
+              </span>
               <span>{course.duration}</span>
             </div>
             <div className="flex gap-10">
-              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">교육비</span>
+              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">
+                교육비
+              </span>
               <span>{course.priceText}</span>
             </div>
             <div className="flex gap-10">
-              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">교육장</span>
+              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">
+                교육장
+              </span>
               <span>{course.location}</span>
             </div>
             <div className="flex items-center gap-10">
-              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">교육일정</span>
+              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">
+                교육일정
+              </span>
               <div className="relative w-[300px]">
                 <select className="w-full h-[60px] text-[#434343] border-2 border-[#DDDDDD] px-3 py-2 rounded-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary">
                   <option value="">{course.date}</option>
+
                 </select>
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-primary">
                   <FaCaretDown size={20} />

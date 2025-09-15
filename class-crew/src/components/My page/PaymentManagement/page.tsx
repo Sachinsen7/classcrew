@@ -6,8 +6,20 @@ import ReusableTable from "@/components/ui/TableProps/Table";
 import downloadIcon from "../../../../public/My page/symbols_download.svg";
 import dropdown from "../../../../public/My page/drop-down.svg";
 
+type Row = {
+  no: number;
+  course: string;
+  date: string;
+  mypage: string;
+  price: string;
+  discount: string;
+  total: string;
+  status: string;
+  receipt: React.ReactNode;
+};
+
 export default function PaymentManagement() {
-  const columns = [
+  const columns: { key: keyof Row; label: string }[] = [
     { key: "no", label: "No." },
     { key: "course", label: "과정명" },
     { key: "date", label: "결제일" },
@@ -19,7 +31,7 @@ export default function PaymentManagement() {
     { key: "receipt", label: "영수증 발급" },
   ];
 
-  const rows = [
+  const rows: Row[] = [
     {
       no: 2,
       course: "[중분류] 교육 과정명",
@@ -47,7 +59,7 @@ export default function PaymentManagement() {
   ];
 
   return (
-    <main className="w-[1270px] mt-6 flex flex-col items-center mb-10">
+    <main className="w-[1270px] mt-6 flex flex-col items-center mb-30">
       {/* Banner with heading */}
       <div className="relative w-full">
         <Image
@@ -106,7 +118,7 @@ export default function PaymentManagement() {
       <div className="w-[1320px] flex mt-10 ml-10">
         {/* Table */}
         <div className="flex-1">
-          <ReusableTable columns={columns} rows={rows} />
+          <ReusableTable<Row> columns={columns} rows={rows} />
         </div>
 
         {/* Right-side icons */}
