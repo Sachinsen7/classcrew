@@ -6,7 +6,7 @@ export interface Course {
   description: string;
   price: number;      
   priceText?: string; 
-  date: Date;         
+  date: String;         
   category: string;
   tagText: string;
   tagColor: string;
