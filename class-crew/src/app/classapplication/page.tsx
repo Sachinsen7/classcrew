@@ -4,12 +4,16 @@ import { Upload, Plus, Minus } from "lucide-react";
 import { BiSolidDownload } from "react-icons/bi";
 import { FaCaretDown } from "react-icons/fa";
 import { X } from "lucide-react";
+import Navbar from "@/components/layout/navbar/page";
 
 export default function ClassApplication() {
   const [file, setFile] = useState<File | null>(null);
-  const [paymentMethod, setPaymentMethod] = useState<string>("무통장입금");
+  // const [paymentMethod, setPaymentMethod] = useState<string>("무통장입금");
   const [taxInvoice, setTaxInvoice] = useState<string>("발행");
   const [open, setOpen] = useState(false);
+const [paymentMethod, setPaymentMethod] = useState("간편결제");
+
+  const paymentOptions = ["간편결제", "카드결제", "계좌이체", "무통장입금", "카드현장결제"];
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -23,7 +27,9 @@ export default function ClassApplication() {
   };
 
   return (
-    <main className="w-[1270px] mx-auto mt-6 flex flex-col items-center mb-10">
+    <>
+    <Navbar/>
+    <main className="w-[1270px] mx-auto mt-24 flex flex-col items-center mb-10">
       <div className="w-full">
         <h2 className="text-[36px] font-extrabold mb-6 text-black">
           수강생정보
@@ -238,10 +244,43 @@ export default function ClassApplication() {
           {/* 결제방식 선택 */}
           <div className="flex items-center py-6">
             <span className="text-[18px] text-[rgba(0,0,0,0.72)] font-bold">
-              결제방식 선택
+              결제방식 선택 
             </span>
             <div className="flex items-center gap-8 ml-32">
               <label className="flex items-center gap-2 cursor-pointer text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
+                <input
+                  type="radio"
+                  name="payment"
+                  value="간편결제"
+                  checked={paymentMethod === "간편결제"}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                  className="accent-black w-4 h-4"
+                />
+               간편결제
+              </label>
+              <label className="flex items-center gap-2 cursor-pointer text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
+                <input
+                  type="radio"
+                  name="payment"
+                  value="카드결제"
+                  checked={paymentMethod === "카드결제"}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                  className="accent-black w-4 h-4"
+                />
+                카드결제
+              </label>
+             <label className="flex items-center gap-2 cursor-pointer text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
+                <input
+                  type="radio"
+                  name="payment"
+                  value="계좌이체"
+                  checked={paymentMethod === "계좌이체"}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                  className="accent-black w-4 h-4"
+                />
+                계좌이체
+              </label>
+               <label className="flex items-center gap-2 cursor-pointer text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
                 <input
                   type="radio"
                   name="payment"
@@ -252,7 +291,7 @@ export default function ClassApplication() {
                 />
                 무통장입금
               </label>
-              <label className="flex items-center gap-2 cursor-pointer text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
+               <label className="flex items-center gap-2 cursor-pointer text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
                 <input
                   type="radio"
                   name="payment"
@@ -263,11 +302,123 @@ export default function ClassApplication() {
                 />
                 카드현장결제
               </label>
-              <span className="text-[#FF0000] text-[18px] font-semibold ml-20">
-                *할인 적용 필요 시 카드 현장 결제 필수
-              </span>
             </div>
           </div>
+           <div className="p-6 mx-auto bg-white shadow rounded-lg">
+      {/* 결제방식 선택 */}
+      <div className="border-b border-gray-200">
+       
+        <div className="flex gap-8 mt-4">
+          {paymentOptions.map((option) => (
+            <label
+              key={option}
+              className={`relative px-4 py-2 rounded-t-lg cursor-pointer text-[18px] font-bold ${
+                paymentMethod === option
+                  ? "text-white  bg-black "
+                  : "text-black bg-[#E3E3E3]"
+              }`}
+            >
+              <input
+                type="radio"
+                name="payment"
+                value={option}
+                checked={paymentMethod === option}
+                onChange={(e) => setPaymentMethod(e.target.value)}
+                className="hidden"
+              />
+              {option}
+            </label>
+          ))}
+        </div>
+      </div>
+
+      {/* 선택된 결제 UI */}
+      <div className="mt-6 bg-gray-50 p-6 rounded-lg border">
+        {paymentMethod === "간편결제" && (
+          <div>
+            <h3 className="font-bold text-[32px] mb-4 text-black">간편결제수단</h3>
+            <div className="flex gap-3">
+              <button className="px-4 py-2 bg-[#F3F3F3] text-black font-medium text-[20px] rounded-md border-[1px] border border-[rgba(84,76,76,0.14)]">
+                카카오페이
+              </button>
+              <button className="px-4 py-2 bg-[#F3F3F3] text-black font-medium text-[20px] rounded-md border-[1px] border border-[rgba(84,76,76,0.14)]">
+                네이버페이
+              </button>
+            </div>
+          </div>
+        )}
+
+        {paymentMethod === "카드결제" && (
+          <div>
+            <h3 className="font-bold text-lg mb-4">카드사선택</h3>
+            <select className="border px-3 py-2 rounded w-full mb-3">
+              <option>선택</option>
+              <option>신한카드</option>
+              <option>국민카드</option>
+              <option>삼성카드</option>
+            </select>
+            <select className="border px-3 py-2 rounded w-full">
+              <option>일시불</option>
+              <option>3개월 할부</option>
+              <option>6개월 할부</option>
+            </select>
+          </div>
+        )}
+
+        {paymentMethod === "계좌이체" && (
+          <div>
+            <h3 className="font-bold text-lg mb-4">계좌이체 은행선택</h3>
+            <select className="border px-3 py-2 rounded w-full mb-3">
+              <option>선택</option>
+              <option>신한은행</option>
+              <option>국민은행</option>
+              <option>우리은행</option>
+            </select>
+          </div>
+        )}
+
+        {paymentMethod === "무통장입금" && (
+          <div>
+            <h3 className="font-bold text-lg mb-4">무통장입금 안내</h3>
+            <p className="text-gray-600 text-sm">
+              주문 후 지정 계좌로 입금해주세요. 입금 확인 후 상품이 발송됩니다.
+            </p>
+          </div>
+        )}
+
+        {paymentMethod === "카드현장결제" && (
+          <div>
+            <h3 className="font-bold text-lg mb-4">카드 현장결제</h3>
+            <p className="text-gray-600 text-sm">
+              방문 시 매장에서 직접 결제하실 수 있습니다.
+            </p>
+          </div>
+        )}
+
+        {/* 결제 요약 */}
+        <div className="border-t mt-6 pt-4">
+          <p className="flex justify-between text-gray-700 mb-1">
+            <span>총 n개의 상품금액</span>
+            <span>150,000원</span>
+          </p>
+          <p className="flex justify-between text-gray-700 mb-1">
+            <span>할인금액</span>
+            <span>15,000원</span>
+          </p>
+          <p className="flex justify-between font-bold text-lg text-gray-900">
+            <span>총 합계</span>
+            <span>135,000원</span>
+          </p>
+          <div className="mt-4 flex items-center gap-2 text-sm text-gray-700">
+            <input type="checkbox" className="accent-black" />
+            위 구매조건 확인 및 결제진행에 동의
+          </div>
+          <button className="w-full mt-4 py-3 bg-black text-white font-bold rounded-lg hover:bg-gray-800">
+            결제하기
+          </button>
+        </div>
+      </div>
+    </div>
           <div className="border border-b-0.5 text-black"></div>
 
           {/* 세금계산서 발행 여부 */}
@@ -522,5 +673,6 @@ export default function ClassApplication() {
         </form>
       </div>
     </main>
+    </>
   );
 }
