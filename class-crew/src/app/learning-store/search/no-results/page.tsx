@@ -6,3 +6,4 @@ import NoSearchResults from "@/components/My page/LearningCrewStore/NoSearchResu
 export default function Page() {
   return <NoSearchResults />;
 }
+
