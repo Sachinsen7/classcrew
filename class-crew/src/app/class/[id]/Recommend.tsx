@@ -2,6 +2,7 @@
 
 import React from "react";
 import SearchBanner from "@/components/ui/SearchBanner";
+import { motion } from "framer-motion";
 
 export default function ClassRecommend() {
   const reviews = [
@@ -36,6 +37,13 @@ export default function ClassRecommend() {
       image: "/class-goal/recommend/span6.png",
     },
   ];
+
+  const arrowVariants = {
+    hover: {
+      scale: 1.1,
+      transition: { duration: 0.2, ease: "easeOut" as const },
+    },
+  } as const;
 
   return (
     <main className="w-[1245px] mt-10 mb-20">
@@ -76,16 +84,38 @@ export default function ClassRecommend() {
             ))}
           </div>
 
-          <div className="flex justify-center mt-8">
-            <div className="flex items-center gap-2">
-              <img src="/images/left-arrow.png" alt="" className="w-12 h-12" />
-              <img
+          <motion.div
+            className="flex justify-center mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.4 }}
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.2, ease: "easeOut" as const },
+            }}
+          >
+            <motion.div
+              className="flex items-center"
+              transition={{ duration: 0.2, ease: "easeOut" as const }}
+            >
+              <motion.img
+                src="/images/left-arrow.png"
+                alt=""
+                className="w-12 h-12 cursor-pointer"
+                variants={arrowVariants}
+                whileHover="hover"
+                whileTap={{ scale: 0.95 }}
+              />
+              <motion.img
                 src="/images/right-black-arrow.png"
                 alt=""
-                className="w-12 h-12"
-              />{" "}
-            </div>
-          </div>
+                className="w-12 h-12 cursor-pointer"
+                variants={arrowVariants}
+                whileHover="hover"
+                whileTap={{ scale: 0.95 }}
+              />
+            </motion.div>
+          </motion.div>
         </section>
 
         <SearchBanner
