@@ -59,7 +59,7 @@ export default function PaymentManagement() {
   ];
 
   return (
-    <main className="w-[1270px] mt-6 flex flex-col items-center mb-10">
+    <main className="w-[1270px] mt-6 flex flex-col items-center mb-30">
       {/* Banner with heading */}
       <div className="relative w-full">
         <Image
