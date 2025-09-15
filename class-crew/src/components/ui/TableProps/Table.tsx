@@ -1,9 +1,9 @@
-interface TableProps<T extends Record<string, unknown>> {
+interface TableProps<T extends Record<string, React.ReactNode>> {
   columns: { key: keyof T; label: string }[];
   rows: T[];
 }
 
-function ReusableTable<T extends Record<string, unknown>>({
+function ReusableTable<T extends Record<string, React.ReactNode>>({
   columns,
   rows,
 }: TableProps<T>) {
@@ -30,7 +30,7 @@ function ReusableTable<T extends Record<string, unknown>>({
                   key={String(col.key)}
                   className="px-4 py-3 text-[18px] font-medium"
                 >
-                  {String(row[col.key])}
+                  {row[col.key]}
                 </td>
               ))}
             </tr>
