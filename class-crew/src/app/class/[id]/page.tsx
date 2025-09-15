@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -78,7 +77,7 @@ export default function CourseDetailPage() {
       <div className="flex gap-8 mt-[130px] w-[1270px] px-4 sm:px-6 lg:px-8  mx-auto">
         <div className="w-[458px] h-[460px] overflow-hidden rounded-2xl">
           <Image
-            src={course.image}   
+            src={course.image ?? "/class-goal/main-image.png"}
             alt={course.title}
             width={400}
             height={400}
@@ -87,7 +86,9 @@ export default function CourseDetailPage() {
         </div>
 
         <div className=" w-[760px] bg-white border border-[#D9D9D9] rounded-2xl p-6 relative">
-          <p className="text-[18px] font-bold text-[rgba(0,0,0,0.55)]">{course.category}</p>
+          <p className="text-[18px] font-bold text-[rgba(0,0,0,0.55)]">
+            {course.category}
+          </p>
 
           <h2 className="text-[32px] text-black font-bold mt-2 leading-snug">
             {course.title}
@@ -95,26 +96,40 @@ export default function CourseDetailPage() {
 
           <div className="mt-6 space-y-3 text-[18px] text-rgba(62, 62, 62, 0.72)">
             <div className="flex gap-10">
-              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">교육대상</span>
+              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">
+                교육대상
+              </span>
               <span>{course.description}</span>
             </div>
             <div className="flex gap-10">
-              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">교육시간</span>
+              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">
+                교육시간
+              </span>
               <span>{course.duration}</span>
             </div>
             <div className="flex gap-10">
-              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">교육비</span>
+              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">
+                교육비
+              </span>
               <span>{course.priceText}</span>
             </div>
             <div className="flex gap-10">
-              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">교육장</span>
+              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">
+                교육장
+              </span>
               <span>{course.location}</span>
             </div>
             <div className="flex items-center gap-10">
-              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">교육일정</span>
+              <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">
+                교육일정
+              </span>
               <div className="relative w-[300px]">
                 <select className="w-full h-[60px] border-2 border-[#DDDDDD] px-3 py-2 rounded-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary">
-                  <option value="">{course.date instanceof Date ? course.date.toLocaleDateString() : course.date}</option>
+                  <option value="">
+                    {course.date instanceof Date
+                      ? course.date.toLocaleDateString()
+                      : course.date}
+                  </option>
                 </select>
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-primary">
                   <FaCaretDown size={20} />
