@@ -49,7 +49,7 @@ export default function Navbar() {
           className="hidden md:flex justify-center items-center text-secondary items-center ml-16 gap-20 text-[18px] font-plus-jakarta-sans font-semibold"
         >
           {[
-            { href: "/class", label: "CLASS" },
+            { href: "/classapplication", label: "CLASS" },
             { href: "/calender", label: "캘린더" },
             { href: "/store", label: "STORE" },
             { href: "/coalition", label: "제휴" },
