@@ -147,7 +147,7 @@ const LoginForm: React.FC = () => {
           로그인
         </button>
 
-        <div className="flex justify-between text-gray-400 text-[18px] font-bold">
+        <div className="flex ml-35 gap-74 text-gray-400 text-[18px] font-bold">
           <Link href="/jointhemembership" className="hover:text-black">
             회원가입
           </Link>

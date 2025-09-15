@@ -2,6 +2,9 @@ export interface Course {
   id: string;
   title: string;
   description: string;
+  price: number;      
+  priceText?: string; 
+  date: String;         
   price: string | number;
   priceText?: string;
   date: string | Date;

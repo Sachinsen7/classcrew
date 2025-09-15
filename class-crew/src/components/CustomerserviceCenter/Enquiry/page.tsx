@@ -13,7 +13,7 @@ const page = () => {
 
         <div className=" py-5">
           <p className="text-right text-[18px] font-bold  text-[rgba(0,0,0,0.72)] mb-4">
-            <span className="text-red-500">*</span> 항목은 필수 입력 항목입니다.
+            <span className="text-[rgba(0,0,0,0.72)]">*</span> 항목은 필수 입력 항목입니다.
           </p>
 
           <form className="space-y-6 mt-10">
@@ -86,7 +86,7 @@ const page = () => {
               </label>
               <input type="text"  className=" w-[972px] h-[44px] border border-[rgba(84, 76, 76, 0.14)] bg-[#F3F3F3] rounded px-3 py-2 ml-8 "/>
             </div>
-            <div className="w-[973px] h-[1px] border-b border-[#D9D9D9] ml-2 mt-8 mb-8"></div>
+            <div className="w-[973px] h-[1px] border-b border-[#D9D9D9] ml-28 mt-8 mb-8"></div>
 
             <div className="flex items-center">
               <label className="w-[96px] h-[24px]  text-[18px] font-bold text-[rgba(0,0,0,0.72)]">
