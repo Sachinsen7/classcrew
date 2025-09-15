@@ -6,3 +6,4 @@ import SearchResults from "@/components/My page/LearningCrewStore/SearchResults/
 export default function Page() {
   return <SearchResults />;
 }
+
