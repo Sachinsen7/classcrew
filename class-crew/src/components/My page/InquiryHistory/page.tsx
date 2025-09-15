@@ -61,7 +61,7 @@ export default function InquiryPage() {
       </div>
 
       <div className="w-[1270px] mx-auto mt-10">
-        <ReusableTable columns={columns} rows={tableRows} />
+        <ReusableTable columns={columns as any} rows={tableRows} />
       </div>
     </>
   );
