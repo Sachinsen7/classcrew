@@ -3,10 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import ReusableTable from "@/components/ui/TableProps/Table";
+import type { ReactNode } from "react";
 import dropdown from "../../../../public/My page/drop-down.svg";
 
+type Row = {
+  no: number;
+  title: ReactNode;
+  date: string;
+  status: string;
+};
+
 export default function InquiryPage() {
-  const columns = [
+  const columns: { key: keyof Row; label: string }[] = [
     { key: "no", label: "No." },
     { key: "title", label: "제목" },
     { key: "date", label: "등록일시" },
@@ -28,7 +36,7 @@ export default function InquiryPage() {
     },
   ];
 
-  const tableRows = rows.map((row) => ({
+  const tableRows: Row[] = rows.map((row) => ({
     ...row,
     title: (
       <Link
@@ -61,7 +69,7 @@ export default function InquiryPage() {
       </div>
 
       <div className="w-[1270px] mx-auto mt-10">
-        <ReusableTable columns={columns as any} rows={tableRows} />
+        <ReusableTable<Row> columns={columns} rows={tableRows} />
       </div>
     </>
   );
