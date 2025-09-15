@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 function ProductDetailPage() {
-  const [quantity, setQuantity] = useState(2); // Default matches screenshot
+  // const [quantity, setQuantity] = useState(2); // Default matches screenshot
 
   return (
     <main className="max-w-[1270px] mx-auto mt-30 px-4">
@@ -61,19 +61,20 @@ function ProductDetailPage() {
               <strong>수량</strong> &nbsp;
               <input
                 type="text"
-                min={1}
-                value={quantity}
-                onChange={(e) => setQuantity(Number(e.target.value))}
+                // min={1}
+                // value={quantity}
+                // onChange={(e) => setQuantity(Number(e.target.value))}
                 className="border rounded px-2 py-1 w-[400px]"
                 placeholder="수량을 입력하세요."
               />
             </div>
           </div>
 
-          <p className="mt-6 font-semibold text-[24px]">
+          <p className="mt-6 font-semibold flex justify-between text-[24px]">
             총 금액(수량):{" "}
-            <span className="text-[32px] font-bold">
-              {(100000 * quantity).toLocaleString()}원 ({quantity}개)
+            <span className="text-[32px] mt-2 font-bold">
+              {/* {(100000 * quantity).toLocaleString()}원 ({quantity}개) */}
+              200,000원(2개)
             </span>
           </p>
 
