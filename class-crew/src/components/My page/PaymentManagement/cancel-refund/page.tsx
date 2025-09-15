@@ -4,8 +4,17 @@ import ReusableTable from "@/components/ui/TableProps/Table";
 import Image from "next/image";
 import dropdown from "../../../../../public/My page/drop-down.svg";
 
+type Row = {
+  no: number;
+  course: string;
+  cancelDate: string;
+  fee: string;
+  refundTotal: string;
+  status: string;
+};
+
 export default function CancelRefundPage() {
-  const columns = [
+  const columns: { key: keyof Row; label: string }[] = [
     { key: "no", label: "No." },
     { key: "course", label: "과정명" },
     { key: "cancelDate", label: "취소/환불일" },
@@ -14,7 +23,7 @@ export default function CancelRefundPage() {
     { key: "status", label: "상태" },
   ];
 
-  const rows = [
+  const rows: Row[] = [
     {
       no: 1,
       course: "[중분류] 교육 과정명",
@@ -38,7 +47,7 @@ export default function CancelRefundPage() {
         />
       </div>
       <div className="w-[1320px] flex mt-10 ml-10">
-        <ReusableTable columns={columns} rows={rows} />
+        <ReusableTable<Row> columns={columns} rows={rows} />
 
         {/* Right-side icons */}
         <div className="flex flex-col items-center justify-center gap-4 ml-6">

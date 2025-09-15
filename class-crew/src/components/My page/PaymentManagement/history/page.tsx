@@ -5,8 +5,19 @@ import Image from "next/image";
 import dropdown from "../../../../../public/My page/drop-down.svg";
 import downloadIcon from "../../../../../public/My page/symbols_download.svg";
 
+type Row = {
+  no: number;
+  course: string;
+  date: string;
+  price: string;
+  refundDate: string;
+  fee: string;
+  refundTotal: string;
+  status: string;
+};
+
 export default function PaymentHistory() {
-  const columns = [
+  const columns: { key: keyof Row; label: string }[] = [
     { key: "no", label: "No." },
     { key: "course", label: "과정명" },
     { key: "date", label: "결제일" },
@@ -17,7 +28,7 @@ export default function PaymentHistory() {
     { key: "status", label: "상태" },
   ];
 
-  const rows = [
+  const rows: Row[] = [
     {
       no: 2,
       course: "[중분류] 교육 과정명",
@@ -56,7 +67,7 @@ export default function PaymentHistory() {
 
       {/* Table */}
       <div className="w-[1320px] flex mt-10 ml-10">
-        <ReusableTable columns={columns} rows={rows} />
+        <ReusableTable<Row> columns={columns} rows={rows} />
 
         {/* Right-side icons */}
         <div className="flex flex-col items-center justify-center gap-4 ml-6">
