@@ -8,6 +8,7 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import Navbar from "@/components/layout/navbar/page"; 
+import { BiSolidDownload } from 'react-icons/bi';
 
 import "./calendar-custom.css";
 
@@ -37,6 +38,10 @@ export default function CalendarPage() {
     <Navbar/>
          <main className="w-[1270px] mx-auto mt-16 flex flex-col items-center mb-10">
       <div className=" w-full bg-white rounded-2xl  p-6 ">
+<button className="w-[170px] h-[44px] flex items-center justify-center gap-2 text-[18px] font-semibold text-black border border-black rounded-md">
+  연간일정
+  <BiSolidDownload className="text-[20px]" />
+</button>
         <FullCalendar
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"
