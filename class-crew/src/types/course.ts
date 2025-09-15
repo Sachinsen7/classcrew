@@ -4,7 +4,7 @@ export interface Course {
   description: string;
   priceText?: string;
   price: string | number;
-  date: string | Date;
+  date: string;
   category: string;
   tagText: string;
   tagColor: string;
