@@ -2,11 +2,21 @@
 
 import Image from "next/image";
 import ReusableTable from "@/components/ui/TableProps/Table";
+import type { ReactNode } from "react";
 import downloadIcon from "../../../../public/My page/symbols_download.svg";
 import dropdown from "../../../../public/My page/drop-down.svg";
 
+type Row = {
+  no: number;
+  course: string;
+  type: string;
+  period: string;
+  status: string;
+  certificate: ReactNode;
+};
+
 export default function LearningStatus() {
-  const columns = [
+  const columns: { key: keyof Row; label: string }[] = [
     { key: "no", label: "No." },
     { key: "course", label: "과정명" },
     { key: "type", label: "유형" },
@@ -15,7 +25,7 @@ export default function LearningStatus() {
     { key: "certificate", label: "수료증 발급" },
   ];
 
-  const rows = [
+  const rows: Row[] = [
     {
       no: 5,
       course: "[중분류] 교육 과정명",
@@ -79,7 +89,7 @@ export default function LearningStatus() {
       {/* Table with right-side icons */}
       <div className="w-[1320px] flex mt-10 ml-10">
         <div className="flex-1">
-          <ReusableTable columns={columns} rows={rows} />
+          <ReusableTable<Row> columns={columns} rows={rows} />
         </div>
 
         <div className="flex flex-col items-center justify-center gap-4 ml-6">
