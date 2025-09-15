@@ -49,7 +49,7 @@ export default function RequiredInfo() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-[565px] h-[60px] border border-[#DDDDDD] ml-9 px-3 py-2 rounded-sm"
+                className="w-[565px] h-[60px] placeholder-[#EE0000] border border-[#DDDDDD] ml-9 px-3 py-2 rounded-sm"
                 placeholder="ooo@hanmail.net"
               />
             </div>
@@ -68,7 +68,7 @@ export default function RequiredInfo() {
                 name="userId"
                 value={formData.userId}
                 onChange={handleChange}
-                className="w-[565px] h-[60px] border border-[#DDDDDD] ml-14 px-3 py-2 rounded-sm"
+                className="w-[565px] h-[60px] placeholder-[#EE0000] border border-[#DDDDDD] ml-14 px-3 py-2 rounded-sm"
                 placeholder="hanmail"
               />
             </div>
@@ -81,7 +81,7 @@ export default function RequiredInfo() {
               <label className="block text-[20px] text-primary font-bold mb-2">
                 비밀번호 <span className="text-[#EE0000]">*</span>
               </label>
-              <div className="flex gap-2">
+              <div className="flex gap-5">
                 <input
                   type="password"
                   name="password"
@@ -126,7 +126,8 @@ export default function RequiredInfo() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-[565px] h-[60px] border border-[#DDDDDD] ml-25 px-3 py-2 rounded-sm"
+                placeholder="홍길동"
+                className="w-[565px] h-[60px] placeholder-[#EE0000] border border-[#DDDDDD] ml-25 px-3 py-2 rounded-sm"
               />
             </div>
 
@@ -148,7 +149,7 @@ export default function RequiredInfo() {
                 </select>
 
                 {/* Custom Arrow */}
-                <span className="absolute right-1+ top-1/2 -translate-y-1/2 pointer-events-none text-primary">
+                <span className="absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none text-primary">
                   <FaChevronDown size={20} />
                 </span>
               </div>
