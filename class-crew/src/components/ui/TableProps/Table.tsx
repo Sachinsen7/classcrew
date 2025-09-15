@@ -40,3 +40,5 @@ function ReusableTable<T extends Record<string, unknown>>({
     </div>
   );
 }
+
+export default ReusableTable;
