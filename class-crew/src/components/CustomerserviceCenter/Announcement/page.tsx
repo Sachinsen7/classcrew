@@ -30,7 +30,7 @@ export default function NoticeTable() {
               <td className="py-3  px-4 font-bold text-[18px] text-black">
                 <span>{notice.title}</span>
                 {notice.isNew && (
-                  <span className="w-[51px] h-[19px] ml-3 bg-black text-white text-xs px-2 py-1 ">
+                  <span className="w-[51px] h-[19px] ml-3  bg-black text-white text-xs px-2 py-1 ">
                     NEW
                   </span>
                 )}
