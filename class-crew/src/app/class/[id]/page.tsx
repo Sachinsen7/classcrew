@@ -12,7 +12,8 @@ import Promotion from "./Promotion";
 import Footer from "@/components/layout/footer/page";
 import Image from "next/image";
 import { FaCaretDown } from "react-icons/fa";
-import { courses } from "@/data/courses"; // ✅ import dataset
+import { Calendar, Share2, Download, Calendar1 } from "lucide-react";
+import { courses } from "@/data/courses"; 
 
 const tabs = [
   { id: "class-goal", label: "CLASS GOAL", component: ClassGoal },
@@ -87,12 +88,19 @@ export default function CourseDetailPage() {
         </div>
 
         <div className=" w-[760px] bg-white border border-[#D9D9D9] rounded-2xl p-6 relative">
-          <p className="text-[18px] font-bold text-[rgba(0,0,0,0.55)]">{course.category}</p>
+<p className="flex items-center justify-between text-[18px] font-bold text-[rgba(0,0,0,0.55)]">
+  {course.category}
+  <span className="flex gap-4 text-black">
+    <Share2 size={20} strokeWidth={2} />
+    <Download size={20} strokeWidth={2}  />
+    <Calendar size={20} strokeWidth={2}  />
+  </span>
+</p>          
 
-          <h2 className="text-[32px] text-black font-bold mt-2 leading-snug">
+          <h2 className="text-[32px] text-black font-bold mt-2 leading-tight tracking-tighter">
             {course.title}
           </h2>
-
+<div className="border-b border-gray-300  mt-2 w-[601px] ml-1 border-2"></div>
           <div className="mt-6 space-y-3 text-[18px] text-rgba(62, 62, 62, 0.72)">
             <div className="flex gap-10">
               <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">교육대상</span>
@@ -113,8 +121,8 @@ export default function CourseDetailPage() {
             <div className="flex items-center gap-10">
               <span className="w-[80px] font-bold text-[rgba(0,0,0,0.72)]">교육일정</span>
               <div className="relative w-[300px]">
-                <select className="w-full h-[60px] border-2 border-[#DDDDDD] px-3 py-2 rounded-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary">
-                  <option value="">{course.date instanceof Date ? course.date.toLocaleDateString() : course.date}</option>
+                <select className="w-full h-[60px] text-[#434343] border-2 border-[#DDDDDD] px-3 py-2 rounded-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary">
+                  <option value="">{course.date}</option>
                 </select>
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-primary">
                   <FaCaretDown size={20} />
