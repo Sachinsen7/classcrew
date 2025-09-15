@@ -11,7 +11,7 @@ import Promotion from "./Promotion";
 import Footer from "@/components/layout/footer/page";
 import Image from "next/image";
 import { FaCaretDown } from "react-icons/fa";
-import { courses } from "@/data/courses"; // ✅ import dataset
+import { courses } from "@/data/courses";
 
 const tabs = [
   { id: "class-goal", label: "CLASS GOAL", component: ClassGoal },
@@ -25,12 +25,15 @@ export default function CourseDetailPage() {
   const params = useParams();
   const courseId = params.id as string;
 
-  // ✅ find course by ID
   const course = courses.find((c) => c.id === courseId);
 
   const [activeTab, setActiveTab] = useState("class-goal");
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
   const navbarHeight = 60;
+  const spacerHeight = 30;
+  const stickyNavHeight = 30;
+  const totalOffset = navbarHeight + spacerHeight + stickyNavHeight;
+  const paddingAdjustment = 40;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,7 +44,7 @@ export default function CourseDetailPage() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5, rootMargin: `-${totalOffset}px 0px 0px 0px` }
     );
 
     tabs.forEach((tab) => {
@@ -50,11 +53,19 @@ export default function CourseDetailPage() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [totalOffset]);
 
   const handleTabClick = (id: string) => {
     setActiveTab(id);
-    sectionRefs.current[id]?.scrollIntoView({ behavior: "smooth" });
+    const section = sectionRefs.current[id];
+    if (section) {
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      // Subtract total offset and a small adjustment for padding/margin
+      window.scrollTo({
+        top: sectionTop - totalOffset - paddingAdjustment,
+        behavior: "smooth",
+      });
+    }
   };
 
   if (!course) {
