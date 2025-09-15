@@ -18,18 +18,17 @@ export default function Navbar() {
       className="w-full h-[67px] bg-primary text-white shadow-lg fixed top-0 left-0 z-50"
     >
       <div className="max-w-full ml-14 mr-10 pt-1 mx-auto flex items-center justify-between px-6 md:px-10 h-full">
-        <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
+        <motion.div >
           <Link href="/" className="flex items-center group">
             <motion.span
-              className={`text-2xl md:text-3xl font-normal tracking-widest ${phenomena.className} transition-transform duration-300 group-hover:scale-110`}
-              whileHover={{ scale: 1.1 }}
+              className={`text-2xl md:text-3xl font-normal tracking-widest ${phenomena.className}  `}
+      
             >
               CLASS
             </motion.span>
             <motion.div
-              className="rounded-md mb-1 flex items-center justify-center shadow-md transition-transform duration-300 group-hover:rotate-90"
-              whileHover={{ rotate: 90, scale: 1.1 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="rounded-md mb-1 flex items-center justify-center shadow-md "
+            
             >
               <Image
                 src="/Vector.png"
@@ -46,7 +45,7 @@ export default function Navbar() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="hidden md:flex justify-center items-center text-secondary items-center ml-16 gap-20 text-[18px] font-plus-jakarta-sans font-semibold"
+          className="hidden md:flex justify-center  text-secondary items-center ml-16 gap-20 text-[18px] font-plus-jakarta-sans font-semibold"
         >
           {[
             { href: "/classapplication", label: "CLASS" },
@@ -98,8 +97,7 @@ export default function Navbar() {
           <motion.li whileHover={{ scale: 1.1 }} transition={{ duration: 0.2 }}>
             <motion.button
               className="items-center w-8 h-8 transition"
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.6 }}
+              
             >
               <img src="/msg.png" alt="" />
             </motion.button>
