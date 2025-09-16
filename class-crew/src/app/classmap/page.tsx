@@ -10,12 +10,9 @@ export default function ClassMap() {
     <Navbar/>
     <main className="w-[1270px] mx-auto  flex flex-col items-center mb-10 mt-14">
     <div className="w-full  py-12 flex flex-col items-center">
-      {/* Title */}
       <h2 className="text-[36px] font-extrabold mb-10 text-black">CLASS MAP</h2>
 
-      {/* Table Layout */}
-      <div className="grid grid-cols-5 gap-12  w-full text-left ">
-        {/* 리더십/직급/계층 */}
+      <div className="grid grid-cols-5 gap-12  w-full h-[439px] text-left bg-[#F0F0F0] p-6 ">
         <div>
           <h3 className="font-bold  mb-4 border-b-[2px] text-[18px] text-black border-[#D9D9D9] pb-4">
             리더십/직급/계층
@@ -26,7 +23,6 @@ export default function ClassMap() {
           </ul>
         </div>
 
-        {/* 비즈니스 스킬 */}
         <div>
            <h3 className="font-bold  mb-4 border-b-[2px] text-[18px] text-black border-[#D9D9D9] pb-4">
             비즈니스 스킬
@@ -40,7 +36,6 @@ export default function ClassMap() {
           </ul>
         </div>
 
-        {/* DX/AX */}
         <div>
              <h3 className="font-bold  mb-4 border-b-[2px] text-[18px] text-black border-[#D9D9D9] pb-4">
             DX/AX
@@ -51,7 +46,6 @@ export default function ClassMap() {
           </ul>
         </div>
 
-        {/* 라이프/커리어 */}
         <div>
          <h3 className="font-bold  mb-4 border-b-[2px] text-[18px] text-black border-[#D9D9D9] pb-4">
             라이프/커리어
@@ -62,7 +56,6 @@ export default function ClassMap() {
           </ul>
         </div>
 
-        {/* 스페셜 */}
         <div>
     <h3 className="font-bold  mb-4 border-b-[2px] text-[18px] text-black border-[#D9D9D9] pb-4">
             스페셜

@@ -52,7 +52,7 @@ export default function InquiryPage() {
     <>
       <div className="flex justify-between items-center w-[1270px] mx-auto mt-8 px-2">
         <Link href="/mypage/inquiry/new">
-          <button className="bg-black text-white text-sm px-4 py-2">
+          <button className="bg-black text-white text-sm px-10 cursor-pointer py-2 rounded-xl">
             문의하기
           </button>
         </Link>
@@ -68,8 +68,26 @@ export default function InquiryPage() {
         </div>
       </div>
 
-      <div className="w-[1270px] mx-auto mt-10">
-        <ReusableTable<Row> columns={columns} rows={tableRows} />
+      <div className="w-[1270px] mx-auto flex items-center mt-10">
+        <div className="flex-1">
+          <ReusableTable<Row> columns={columns} rows={tableRows} />
+        </div>
+
+        <div className="flex flex-col items-center justify-center gap-4 ml-6">
+          <Image
+            src="/My page/up-arrow.svg"
+            alt="Up Arrow"
+            width={20}
+            height={20}
+          />
+          <Image
+            src="/My page/search.svg"
+            alt="Search"
+            width={20}
+            height={20}
+          />
+          <Image src="/My page/chat.svg" alt="Chat" width={20} height={20} />
+        </div>
       </div>
     </>
   );

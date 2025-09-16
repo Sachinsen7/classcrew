@@ -122,8 +122,7 @@ export default function CourseSection({ title, courses }: CourseSectionProps) {
           }}
         >
           <motion.div
-            className="flex items-center gap-2"
-            whileHover={{ gap: "1rem" }}
+            className="flex items-center"
             transition={{ duration: 0.2, ease: "easeOut" as const }}
           >
             <motion.img

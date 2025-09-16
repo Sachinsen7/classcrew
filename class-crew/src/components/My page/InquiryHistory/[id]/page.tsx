@@ -6,7 +6,7 @@ export default function InquiryDetail() {
   const { id } = useParams();
 
   return (
-    <div className="w-[1270px] mx-auto mt-10">
+    <div className="w-[1270px] mx-auto">
       <h1 className="text-xl font-bold mb-4">문의 상세 페이지</h1>
       <p>문의 번호: {id}</p>
       <div className="mt-4 p-4 border rounded">
