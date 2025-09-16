@@ -52,7 +52,7 @@ export default function PaymentHistory() {
   ];
 
   return (
-    <div className="w-full mt-10">
+    <div className="w-[1270px] mx-auto mt-10">
       {/* Dropdown */}
       <div className="w-full flex justify-end mt-14 pr-4">
         <span className="text-[14px] font-bold">조회기간 설정</span>
@@ -66,8 +66,10 @@ export default function PaymentHistory() {
       </div>
 
       {/* Table */}
-      <div className="w-[1320px] flex mt-10 ml-10">
-        <ReusableTable<Row> columns={columns} rows={rows} />
+      <div className="w-[1270px] mx-auto flex items-center mt-10">
+        <div className="flex-1">
+          <ReusableTable<Row> columns={columns} rows={rows} />
+        </div>
 
         {/* Right-side icons */}
         <div className="flex flex-col items-center justify-center gap-4 ml-6">

@@ -2,9 +2,9 @@ export interface Course {
   id: string;
   title: string;
   description: string;
-  price: string | number;
   priceText?: string;
-  date: string | Date;
+  price: string | number;
+  date: string;
   category: string;
   tagText: string;
   tagColor: string;

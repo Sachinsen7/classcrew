@@ -13,7 +13,7 @@ export default function MyPageLayout({
 
   const bannerConfig: Record<string, { image: string; text: string }> = {
     "/mypage/learning-status": {
-      image: "/My page/banner.png",
+      image: "/My page/new-banner-image.png",
       text: "안녕하세요,\n홍길동 님 마이페이지 입니다.",
     },
     "/mypage/payment-management": {
@@ -53,7 +53,13 @@ export default function MyPageLayout({
           height={200}
           className="w-full"
         />
-        <h1 className="absolute top-6 left-6 whitespace-pre-line text-white text-xl font-semibold">
+        <h1
+          className={`absolute whitespace-pre-line text-white text-xl font-semibold ${
+            pathname.startsWith("/mypage/learning-status")
+              ? "top-6 left-6 text-left"
+              : "inset-0 flex items-center justify-center text-center"
+          }`}
+        >
           {banner.text}
         </h1>
       </div>

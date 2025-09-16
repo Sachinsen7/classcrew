@@ -22,12 +22,12 @@ export default function PaymentLayout({
   return (
     <div className="w-full">
       {/* Sub Tabs */}
-      <div className="flex gap-3 mt-6">
+      <div className="w-[1270px] mx-auto flex gap-4 mt-6 ml-20">
         {subTabs.map((tab) => (
           <Link
             key={tab.href}
             href={tab.href}
-            className={`px-6 py-2 font-bold ${
+            className={`px-6 py-2 font-bold rounded ${
               pathname === tab.href
                 ? "bg-black text-white"
                 : "bg-gray-100 text-black"
