@@ -18,18 +18,14 @@ export default function Navbar() {
       className="w-full h-[67px] bg-primary text-white shadow-lg fixed top-0 left-0 z-50"
     >
       <div className="max-w-full ml-14 mr-10 pt-1 mx-auto flex items-center justify-between px-6 md:px-10 h-full">
-        <motion.div >
+        <motion.div>
           <Link href="/" className="flex items-center group">
             <motion.span
               className={`text-2xl md:text-3xl font-normal tracking-widest ${phenomena.className}  `}
-      
             >
               CLASS
             </motion.span>
-            <motion.div
-              className="rounded-md mb-1 flex items-center justify-center shadow-md "
-            
-            >
+            <motion.div className="rounded-md mb-1 flex items-center justify-center shadow-md ">
               <Image
                 src="/Vector.png"
                 alt="Logo"
@@ -50,7 +46,7 @@ export default function Navbar() {
           {[
             { href: "/classapplication", label: "CLASS" },
             { href: "/calender", label: "캘린더" },
-            { href: "/store", label: "STORE" },
+            { href: "/learning-store", label: "SHOP" },
             { href: "/coalition", label: "제휴" },
             { href: "customerservicecenter/announcement", label: "고객센터" },
           ].map((item, index) => (
@@ -95,10 +91,7 @@ export default function Navbar() {
           </motion.li>
 
           <motion.li whileHover={{ scale: 1.1 }} transition={{ duration: 0.2 }}>
-            <motion.button
-              className="items-center w-8 h-8 transition"
-              
-            >
+            <motion.button className="items-center w-8 h-8 transition">
               <img src="/msg.png" alt="" />
             </motion.button>
           </motion.li>
