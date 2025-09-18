@@ -18,7 +18,7 @@ export default function ProcessingPage() {
       const next = search.get("next");
       const successPath = next || `/payments/${method}/success`;
       router.replace(successPath);
-    }, 2000); // redirect after 2 seconds
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [params, router, search]);
