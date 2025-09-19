@@ -21,7 +21,7 @@ export default function PaymentConfirm() {
                 123456789101
               </span>
             </p>
-            <p className="text-xl font-bold text-black mt-2 text-black text-[30px]">
+            <p className="text-xl font-bold text-black mt-2 text-[30px]">
               135,000 원
             </p>
           </div>
