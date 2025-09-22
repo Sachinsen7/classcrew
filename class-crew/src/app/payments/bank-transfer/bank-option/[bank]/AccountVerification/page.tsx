@@ -10,7 +10,7 @@ dotSpinner.register();
 export default function AccountVerification() {
   const router = useRouter();
   const params = useParams();
-  const bankName = params.bank ? decodeURIComponent(params.bank as string) : "";
+  // const bankName = params.bank ? decodeURIComponent(params.bank as string) : "";
   const [isLoading, setIsLoading] = useState(false);
 
   const handleNextClick = () => {
