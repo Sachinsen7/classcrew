@@ -26,13 +26,17 @@ export default function ClassGoal() {
 
         {/* Bottom Banner */}
         <SearchBanner
-          className="mt-32"
+          titleDiv="pl-3 flex"
+          className="mt-32 px-5"
           bgImage="/images/Block_with_illustration.png"
           title="나를 위한 투자, 지금 이 CLASS로 시작하세요"
           description="성장을 위한 꾸준한 노력, 이미 당신은 능력자!"
           buttonText="CLASS 신청하기"
           width="w-[1245px]"
           height="h-[147px]"
+          buttonWidth="w-[210px]"
+          buttonHeight="h-[53px]"
+          buttonLink="/payments"
           onSearch={() => console.log("Searching with:", theme, job)}
           filters={[]}
         />
