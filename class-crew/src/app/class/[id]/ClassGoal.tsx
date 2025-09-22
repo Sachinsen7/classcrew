@@ -3,8 +3,8 @@ import SearchBanner from "@/components/ui/SearchBanner";
 import React from "react";
 
 export default function ClassGoal() {
-  const [theme, setTheme] = React.useState("");
-  const [job, setJob] = React.useState("");
+  const [theme, _setTheme] = React.useState("");
+  const [job, _setJob] = React.useState("");
   return (
     <main className="w-[1270px] mt-10 mb-20 items-center">
       <div className="w-full  space-y-10">
