@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Navbar from "@/components/payments/Navbar";
 import { useRouter } from "next/navigation";
 
 export default function PaymentPage() {
