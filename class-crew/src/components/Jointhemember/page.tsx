@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 export default function Jointhem() {
-  const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     userId: "",
@@ -30,11 +29,11 @@ export default function Jointhem() {
   return (
     <>
       <div className="w-full max-w-[1270px] mx-auto mt-20 flex flex-col items-center mb-6">
-      <div className="flex justify-center items-center h-[130px]">
-        <h1 className="text-[36px] font-extrabold text-[var(--primary)]">
-          로그인
-        </h1>
-      </div>
+        <div className="flex justify-center items-center h-[130px]">
+          <h1 className="text-[36px] font-extrabold text-[var(--primary)]">
+            로그인
+          </h1>
+        </div>
       </div>
       <main className="w-[1270px] mt-6 mx-auto flex flex-col items-center mb-10">
         <div className="w-full border border-[#E6E6E6] rounded-sm">
@@ -96,7 +95,6 @@ export default function Jointhem() {
                   onChange={handleChange}
                   className="w-[565px] h-[60px] border border-[#DDDDDD] ml-15 px-3 py-2 rounded-sm"
                 />
-              
               </div>
             </div>
             <p className="text-[16px] text-[#6D6D6D] ">비밀번호의 강도:</p>
@@ -113,10 +111,7 @@ export default function Jointhem() {
                 className="w-[565px] h-[60px] border border-[#DDDDDD] ml-4 px-3 py-2 rounded-sm"
               />
             </div>
-             <p className="text-[16px] text-[#6D6D6D] ">
-             
-              입력하십시오.
-            </p>
+            <p className="text-[16px] text-[#6D6D6D] ">입력하십시오.</p>
             <p className="text-[16px] text-[#6D6D6D] ">
               새로운 계정에 이용할 새로운 비밀번호를 두 입력 필드에 동일하게
               입력하십시오.
@@ -193,7 +188,7 @@ export default function Jointhem() {
 
       {/* 2nd*/}
 
-        <main className="w-[1270px] mt-6 mx-auto flex flex-col items-center mb-10">
+      <main className="w-[1270px] mt-6 mx-auto flex flex-col items-center mb-10">
         <div className="w-full border border-[#E6E6E6] rounded-sm">
           <div className="bg-[#EEEEEE] px-4 py-3 flex items-center gap-2">
             <FaChevronUp className="text-primary" />
@@ -216,7 +211,6 @@ export default function Jointhem() {
                 className="w-[565px] h-[60px] border border-[#DDDDDD] ml-18 px-3 py-2 rounded-sm"
               />
             </div>
-           
 
             <div className="flex items-center gap-6">
               <label className="block text-[20px] text-primary font-bold whitespace-nowrap">
@@ -341,8 +335,6 @@ export default function Jointhem() {
           <button className="w-full h-[55px] bg-black text-white text-[20px] font-bold py-4 rounded-full mt-6">
             가입하기
           </button>
-
-         
         </div>
       </main>
     </>
