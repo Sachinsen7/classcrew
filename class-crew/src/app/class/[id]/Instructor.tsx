@@ -4,8 +4,8 @@ import React from "react";
 import SearchBanner from "@/components/ui/SearchBanner";
 
 export default function ClassInstructor() {
-  const [theme, setTheme] = React.useState("");
-  const [job, setJob] = React.useState("");
+  const [theme, _setTheme] = React.useState("");
+  const [job, _setJob] = React.useState("");
   return (
     <main className="w-[1270px] mt-10 mb-20">
       <div className="w-full space-y-14">
