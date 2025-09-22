@@ -9,7 +9,6 @@ import { DotIcon } from "lucide-react";
 export default function ChooseBank() {
   const router = useRouter();
   const [selectedCard, setSelectedCard] = useState("");
-  const [installment, setInstallment] = useState("");
   const [agreed, setAgreed] = useState(false);
   //   const [agreed2, setAgreed2] = useState(false);
 
