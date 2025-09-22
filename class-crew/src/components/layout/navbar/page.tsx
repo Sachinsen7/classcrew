@@ -46,7 +46,7 @@ export default function Navbar() {
           {[
             { href: "/classapplication", label: "CLASS" },
             { href: "/calender", label: "캘린더" },
-            { href: "/learning-store", label: "SHOP" },
+            { href: "/learning-store", label: "STORE" },
             { href: "/coalition", label: "제휴" },
             { href: "customerservicecenter/announcement", label: "고객센터" },
           ].map((item, index) => (
