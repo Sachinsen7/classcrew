@@ -50,7 +50,7 @@ export default function CourseSection({ title, courses }: CourseSectionProps) {
 
   return (
     <motion.section
-      className="py-8 px-3 max-w-7xl mx-auto"
+      className="py-8 max-w-7xl mx-auto"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
