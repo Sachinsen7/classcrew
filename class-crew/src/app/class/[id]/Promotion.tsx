@@ -3,6 +3,8 @@
 import React from "react";
 
 export default function PromotionNotice() {
+  const [theme, setTheme] = React.useState("");
+  const [job, setJob] = React.useState("");
   return (
     <main className="w-[1245px] mt-10 mb-20 space-y-16">
       {/* Promotion */}
