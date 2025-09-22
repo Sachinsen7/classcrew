@@ -30,7 +30,7 @@ export default function AccountVerification() {
               처리 중입니다.
             </p>
             <p className="text-gray-600 text-[32px] font-bold mb-8">잠시만</p>
-            <l-dot-spinner size="90" speed="0.9" color="gray"></l-dot-spinner>
+            {/* <l-dot-spinner size="90" speed="0.9" color="gray"></l-dot-spinner> */}
           </div>
         ) : (
           <>
