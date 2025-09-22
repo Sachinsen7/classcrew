@@ -11,7 +11,7 @@ import Promotion from "./Promotion";
 import Footer from "@/components/layout/footer/page";
 import Image from "next/image";
 import { FaCaretDown } from "react-icons/fa";
-import { Calendar, Share2, Download, Calendar1 } from "lucide-react";
+import { Calendar, Share2, Download } from "lucide-react";
 import { courses } from "@/data/courses";
 
 const tabs = [
@@ -39,7 +39,7 @@ export default function CourseDetailPage() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        let visibleSections = entries.filter((entry) => entry.isIntersecting);
+        const visibleSections = entries.filter((entry) => entry.isIntersecting);
         if (visibleSections.length > 0) {
           visibleSections.sort(
             (a, b) => a.boundingClientRect.top - b.boundingClientRect.top
