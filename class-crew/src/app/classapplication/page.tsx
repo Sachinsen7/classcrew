@@ -1,24 +1,24 @@
 "use client";
 import { useState, FormEvent } from "react";
-import { Upload, Plus, Minus } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 import { BiSolidDownload } from "react-icons/bi";
 import { FaCaretDown } from "react-icons/fa";
 import { X } from "lucide-react";
 import Navbar from "@/components/layout/navbar/page";
 
 export default function ClassApplication() {
-  const [file, setFile] = useState<File | null>(null);
+  const [_file, setFile] = useState<File | null>(null);
   const [taxInvoice, setTaxInvoice] = useState<string>("발행");
   const [open, setOpen] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("간편결제");
 
-  const paymentOptions = [
-    "간편결제",
-    "카드결제",
-    "계좌이체",
-    "무통장입금",
-    "카드현장결제",
-  ];
+  // const paymentOptions = [
+  //   "간편결제",
+  //   "카드결제",
+  //   "계좌이체",
+  //   "무통장입금",
+  //   "카드현장결제",
+  // ];
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
