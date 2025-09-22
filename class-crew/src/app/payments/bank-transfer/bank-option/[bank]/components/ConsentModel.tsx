@@ -8,11 +8,7 @@ interface ConsentModalProps {
   onClose: () => void;
 }
 
-export default function ConsentModal({
-  title,
-  children,
-  onClose,
-}: ConsentModalProps) {
+export default function ConsentModal({ title, children }: ConsentModalProps) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
       <div className="bg-white w-[1245px] h-[472px] rounded-2xl shadow-2xl p-10 relative flex flex-col items-center justify-center overflow-y-auto">
