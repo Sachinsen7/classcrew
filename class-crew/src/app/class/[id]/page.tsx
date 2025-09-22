@@ -39,13 +39,18 @@ export default function CourseDetailPage() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveTab(entry.target.id);
-          }
-        });
+        let visibleSections = entries.filter((entry) => entry.isIntersecting);
+        if (visibleSections.length > 0) {
+          visibleSections.sort(
+            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top
+          );
+          setActiveTab(visibleSections[0].target.id);
+        }
       },
-      { threshold: 0.5, rootMargin: `-${totalOffset}px 0px 0px 0px` }
+      {
+        threshold: 0.1,
+        rootMargin: `-${totalOffset}px 0px -40% 0px`,
+      }
     );
 
     tabs.forEach((tab) => {
