@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export default function PromotionNotice() {
-  const [theme, setTheme] = React.useState("");
-  const [job, setJob] = React.useState("");
   return (
     <main className="w-[1245px] mt-10 mb-20 space-y-16">
       {/* Promotion */}
@@ -15,41 +14,28 @@ export default function PromotionNotice() {
 
         {/* 4 small images row */}
         <div className="grid grid-cols-4 gap-4 mt-10">
-          <div className="rounded-lg overflow-hidden">
-            <img
-              src="/class-goal/promotion/promo1.png"
-              alt="Promotion 1"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="rounded-lg overflow-hidden">
-            <img
-              src="/class-goal/promotion/promo2.png"
-              alt="Promotion 2"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="rounded-lg overflow-hidden">
-            <img
-              src="/class-goal/promotion/promo3.png"
-              alt="Promotion 3"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="rounded-lg overflow-hidden">
-            <img
-              src="/class-goal/promotion/promo4.png"
-              alt="Promotion 4"
-              className="w-full h-full object-cover"
-            />
-          </div>
+          {["promo1.png", "promo2.png", "promo3.png", "promo4.png"].map(
+            (file, idx) => (
+              <div key={idx} className="rounded-lg overflow-hidden">
+                <Image
+                  src={`/class-goal/promotion/${file}`}
+                  alt={`Promotion ${idx + 1}`}
+                  width={295}
+                  height={218}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )
+          )}
         </div>
 
         {/* Wide banner image */}
         <div className="rounded-lg overflow-hidden">
-          <img
+          <Image
             src="/class-goal/promotion/promo5.png"
             alt="Promotion Wide"
+            width={1245}
+            height={218}
             className="w-full object-cover"
           />
         </div>
@@ -62,9 +48,11 @@ export default function PromotionNotice() {
         </h2>
 
         <div className="rounded-lg overflow-hidden">
-          <img
+          <Image
             src="/class-goal/promotion/big-image.png"
             alt="Notice"
+            width={1245}
+            height={642}
             className="w-full object-cover"
           />
         </div>
