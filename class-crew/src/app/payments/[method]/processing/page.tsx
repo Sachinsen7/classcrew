@@ -34,7 +34,7 @@ export default function ProcessingPage() {
         </div>
 
         {/* Dot Spinner Loader */}
-        <l-dot-spinner size="90" speed="0.9" color="gray"></l-dot-spinner>
+        {/* <l-dot-spinner size="90" speed="0.9" color="gray"></l-dot-spinner> */}
       </div>
     </div>
   );

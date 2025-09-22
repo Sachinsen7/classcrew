@@ -28,7 +28,7 @@ export default function ProcessingPage() {
               계좌를 확인하고 있습니다.
             </p>
             <p className="text-gray-600 text-[32px] font-bold mb-8">잠시만</p>
-            <l-dot-spinner size="90" speed="0.9" color="gray"></l-dot-spinner>
+            {/* <l-dot-spinner size="90" speed="0.9" color="gray"></l-dot-spinner> */}
           </>
         ) : (
           <div className="flex flex-col items-center w-full max-w-[1000px]">
