@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import Button from "./Button";
+import { useRouter } from "next/navigation";
 
 type Option = {
   label: string;
@@ -18,11 +19,14 @@ type SearchBannerProps = {
     onChange: (value: string) => void;
   }[];
   buttonText: string;
-  onSearch: () => void;
-
+  onSearch?: () => void;
+  buttonLink?: string;
   width?: string;
   height?: string;
   className?: string;
+  buttonWidth?: string;
+  buttonHeight?: string;
+  titleDiv?: string;
 };
 
 export default function SearchBanner({
@@ -32,11 +36,23 @@ export default function SearchBanner({
   filters,
   buttonText,
   onSearch,
+  buttonLink,
   width = "w-[1245px]",
   height = "h-[200px]",
   className = "",
+  buttonWidth = "w-[105px]",
+  buttonHeight = "h-[40px]",
+  titleDiv = "text-[32px] font-bold",
 }: SearchBannerProps) {
-  // Typed variants with explicit Variants type to resolve inference issues
+  const router = useRouter();
+
+  const handleClick = () => {
+    if (buttonLink) {
+      router.push(buttonLink);
+    } else if (onSearch) {
+      onSearch();
+    }
+  };
   const containerVariants: Variants = {
     hidden: {
       opacity: 0,
@@ -117,7 +133,7 @@ export default function SearchBanner({
 
   return (
     <motion.div
-      className={`relative rounded-2xl overflow-hidden p-6 flex items-center justify-between mb-20 ${width} ${height} ${className} px-20`}
+      className={`relative rounded-2xl overflow-hidden p-6 flex items-center justify-between mb-20 ${width} ${height} ${className}`}
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
@@ -137,14 +153,14 @@ export default function SearchBanner({
 
       {/* Title Section */}
       <motion.div
-        className="flex flex-col relative z-10"
+        className={`flex flex-col relative z-10 ${titleDiv}`}
         variants={titleVariants}
         initial="hidden"
         animate="visible"
         transition={{ delay: 0.1 }}
       >
         <motion.h2
-          className="text-white font-bold text-lg"
+          className="text-white font-semibold text-[20px] w-full"
           variants={titleVariants}
           whileHover={{
             scale: 1.05,
@@ -156,7 +172,7 @@ export default function SearchBanner({
         </motion.h2>
 
         <motion.p
-          className="text-white mt-2"
+          className="text-white mt-2 text-[16px]"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.4 }}
@@ -167,7 +183,7 @@ export default function SearchBanner({
 
       {/* Filters Section */}
       <motion.div
-        className="flex items-center gap-4 relative z-10"
+        className="flex w-[779px] items-center justify-end gap-10 relative z-10"
         variants={filterVariants}
         initial="hidden"
         animate="visible"
@@ -176,11 +192,11 @@ export default function SearchBanner({
         {filters.map((filter, idx) => (
           <motion.div
             key={idx}
-            className="flex items-center gap-2 text-white"
+            className="flex items-center gap-3 text-white"
             variants={filterVariants}
           >
             <motion.span
-              className="font-medium"
+              className="font-medium text-[22px]"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
@@ -189,8 +205,10 @@ export default function SearchBanner({
 
             <motion.select
               value={filter.value}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => filter.onChange(e.target.value)}
-              className="bg-transparent/80 backdrop-blur-sm border border-white/70 rounded-md px-3 py-2 text-sm text-white focus:outline-none focus:border-white/90 hover:border-white/80"
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                filter.onChange(e.target.value)
+              }
+              className="bg-transparent/80 w-[206px] h-[49px] backdrop-blur-sm border border-white/70 rounded-md px-3 py-2 text-sm text-[#898989] focus:outline-none focus:border-white/90 hover:border-white/80"
               variants={selectVariants}
               whileHover="hover"
               whileFocus="focus"
@@ -219,9 +237,9 @@ export default function SearchBanner({
           >
             <Button
               label={buttonText}
-              onClick={onSearch}
+              onClick={handleClick}
               variant="secondary"
-              className="bg-white/90 backdrop-blur-sm text-black font-semibold hover:bg-white/100 border-white/20 shadow-lg"
+              className={`bg-white/90 ${buttonWidth} ${buttonHeight} backdrop-blur-sm text-black font-semibold hover:bg-white/100 border-white/20 shadow-lg`}
             />
           </motion.div>
         </motion.div>
