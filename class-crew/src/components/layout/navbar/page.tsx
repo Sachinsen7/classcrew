@@ -89,12 +89,12 @@ export default function Navbar() {
               </motion.span>
             </motion.div>
           </motion.li>
-
+          {/* 
           <motion.li whileHover={{ scale: 1.1 }} transition={{ duration: 0.2 }}>
             <motion.button className="items-center w-8 h-8 transition">
               <img src="/msg.png" alt="" />
             </motion.button>
-          </motion.li>
+          </motion.li> */}
         </motion.ul>
 
         <motion.button
