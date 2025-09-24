@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link"
 
 function ProductDetailPage() {
   // const [quantity, setQuantity] = useState(2); // Default matches screenshot
@@ -78,14 +79,17 @@ function ProductDetailPage() {
             </span>
           </p>
 
-          <div className="flex gap-4 mt-8 justify-between">
-            <button className="bg-gray-200 text-black px-10 w-full py-3 rounded hover:bg-gray-300 transition">
-              찜하기
-            </button>
-            <button className="bg-black text-white px-10 py-3 w-full rounded hover:bg-gray-800 transition">
-              구매하기
-            </button>
-          </div>
+        <div className="flex gap-4 mt-8 justify-between">
+  <button className="bg-gray-200 text-black px-10 w-full py-3 rounded hover:bg-gray-300 transition">
+    찜하기
+  </button>
+
+  <Link href="/shopping-basket" className="w-full">
+    <button className="bg-black text-white px-10 py-3 w-full rounded hover:bg-gray-800 transition">
+      구매하기
+    </button>
+  </Link>
+</div>
         </div>
       </div>
 

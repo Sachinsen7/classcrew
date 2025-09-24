@@ -18,7 +18,7 @@ export default function ProcessingPage() {
       const next = search.get("next");
       const successPath = next || `/payments/${method}/success`;
       router.replace(successPath);
-    }, 2000); // redirect after 2 seconds
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [params, router, search]);
@@ -34,7 +34,7 @@ export default function ProcessingPage() {
         </div>
 
         {/* Dot Spinner Loader */}
-        <l-dot-spinner size="90" speed="0.9" color="gray"></l-dot-spinner>
+        {/* <l-dot-spinner size="90" speed="0.9" color="gray"></l-dot-spinner> */}
       </div>
     </div>
   );

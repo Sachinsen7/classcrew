@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X, Mail } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { phenomena } from "@/app/font";
 import { motion } from "framer-motion";
 
@@ -46,7 +46,7 @@ export default function Navbar() {
           {[
             { href: "/classapplication", label: "CLASS" },
             { href: "/calender", label: "캘린더" },
-            { href: "/learning-store", label: "SHOP" },
+            { href: "/learning-store", label: "STORE" },
             { href: "/coalition", label: "제휴" },
             { href: "customerservicecenter/announcement", label: "고객센터" },
           ].map((item, index) => (
@@ -91,12 +91,12 @@ export default function Navbar() {
             </motion.div>
             </Link>
           </motion.li>
-
+          {/* 
           <motion.li whileHover={{ scale: 1.1 }} transition={{ duration: 0.2 }}>
             <motion.button className="items-center w-8 h-8 transition">
               <img src="/msg.png" alt="" />
             </motion.button>
-          </motion.li>
+          </motion.li> */}
         </motion.ul>
 
         <motion.button

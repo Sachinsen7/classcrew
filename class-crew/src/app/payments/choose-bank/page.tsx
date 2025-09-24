@@ -1,13 +1,14 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { HiOutlineCreditCard } from "react-icons/hi";
 import Navbar from "@/components/payments/Navbar";
 import { DotIcon } from "lucide-react";
 
 export default function ChooseBank() {
+  const router = useRouter();
   const [selectedCard, setSelectedCard] = useState("");
-  const [installment, setInstallment] = useState("");
   const [agreed, setAgreed] = useState(false);
   //   const [agreed2, setAgreed2] = useState(false);
 
@@ -15,7 +16,7 @@ export default function ChooseBank() {
     <div className="min-h-screen flex items-center justify-center p-6">
       <div className="bg-white w-[1245px] rounded-2xl shadow-2xl h-[657px]">
         {/* Navbar */}
-        <Navbar title="카드결제" sequence={3} />
+        <Navbar title="카드결제" sequence={4} />
 
         {/* Content */}
         <div className="px-20">
@@ -90,6 +91,7 @@ export default function ChooseBank() {
           {/* Pay Button */}
           <button
             disabled={!agreed || !selectedCard}
+            onClick={() => router.push("/payments/choose-bank/payment-confirm")}
             className={`mt-6 w-full flex items-center justify-center space-x-2 py-3 rounded-md font-medium text-lg mb-20
               ${
                 !agreed || !selectedCard

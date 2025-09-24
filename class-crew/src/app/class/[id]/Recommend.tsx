@@ -3,8 +3,11 @@
 import React from "react";
 import SearchBanner from "@/components/ui/SearchBanner";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function ClassRecommend() {
+  const [theme, _setTheme] = React.useState("");
+  const [job, _setJob] = React.useState("");
   const reviews = [
     {
       name: "인사직무 A부장",
@@ -71,7 +74,13 @@ export default function ClassRecommend() {
                 className="bg-[#FAFAFA] shadow-md rounded-[16px] border border-[#c8c9cc] p-6 text-[#333] flex flex-col gap-4"
               >
                 <div className="w-full h-12 rounded-full flex items-center bg-[#FAFAFA] justify-start text-2xl gap-4">
-                  <img src={review.image} alt="" className="w-12 h-12" />
+                  <Image
+                    src={review.image}
+                    alt={review.name}
+                    width={48}
+                    height={48}
+                    className="rounded-full"
+                  />
                   <span className="text-[14px] font-medium text-[#9CA3AF]">
                     {review.name}
                   </span>
@@ -98,35 +107,48 @@ export default function ClassRecommend() {
               className="flex items-center"
               transition={{ duration: 0.2, ease: "easeOut" as const }}
             >
-              <motion.img
-                src="/images/left-arrow.png"
-                alt=""
-                className="w-12 h-12 cursor-pointer"
+              <motion.div
                 variants={arrowVariants}
                 whileHover="hover"
                 whileTap={{ scale: 0.95 }}
-              />
-              <motion.img
-                src="/images/right-black-arrow.png"
-                alt=""
-                className="w-12 h-12 cursor-pointer"
+              >
+                <Image
+                  src="/images/left-arrow.png"
+                  alt="Left Arrow"
+                  width={48}
+                  height={48}
+                  className="cursor-pointer"
+                />
+              </motion.div>
+              <motion.div
                 variants={arrowVariants}
                 whileHover="hover"
                 whileTap={{ scale: 0.95 }}
-              />
+              >
+                <Image
+                  src="/images/right-black-arrow.png"
+                  alt="Right Arrow"
+                  width={48}
+                  height={48}
+                  className="cursor-pointer"
+                />
+              </motion.div>
             </motion.div>
           </motion.div>
         </section>
 
         <SearchBanner
-          className="mt-20"
+          titleDiv="pl-3 flex"
+          className="mt-32 px-5"
           bgImage="/images/Block_with_illustration.png"
           title="나를 위한 투자, 지금 이 CLASS로 시작하세요"
           description="성장을 위한 꾸준한 노력, 이미 당신은 능력자!"
           buttonText="CLASS 신청하기"
           width="w-[1245px]"
           height="h-[147px]"
-          onSearch={() => console.log("Apply clicked")}
+          buttonWidth="w-[210px]"
+          buttonHeight="h-[53px]"
+          onSearch={() => console.log("Searching with:", theme, job)}
           filters={[]}
         />
       </div>

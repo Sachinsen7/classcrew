@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 export default function BankTransfer() {
   const router = useRouter();
   const [selectedCard, setSelectedCard] = useState("");
-  const [installment, setInstallment] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [agreed2, setAgreed2] = useState(false);
 
@@ -101,7 +100,7 @@ export default function BankTransfer() {
                   : "bg-gray-900 text-white hover:bg-black cursor-pointer"
               }
             `}
-            onClick={() => router.push("/payments/bank-transfer/processing")}
+            onClick={() => router.push("/payments/bank-transfer/bank-option")}
           >
             <HiOutlineCreditCard className="text-2xl" />
             <span>결제하기</span>

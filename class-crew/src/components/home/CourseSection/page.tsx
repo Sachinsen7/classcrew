@@ -50,7 +50,7 @@ export default function CourseSection({ title, courses }: CourseSectionProps) {
 
   return (
     <motion.section
-      className="py-8 px-6 max-w-7xl mx-auto"
+      className="py-8 max-w-7xl mx-auto"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
@@ -77,7 +77,7 @@ export default function CourseSection({ title, courses }: CourseSectionProps) {
           />
         </motion.h2>
         <motion.h2
-          className="text-lg font-medium text-gray-500"
+          className="text-[14px] font-bold text-gray-500"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.4 }}
