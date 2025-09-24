@@ -69,6 +69,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
+               <Link href={"/mypage"}>
             <motion.div
               className="relative flex items-center gap-2 text-[16px]"
               whileHover={{ scale: 1.02 }}
@@ -88,6 +89,7 @@ export default function Navbar() {
                 홍길동님
               </motion.span>
             </motion.div>
+            </Link>
           </motion.li>
           {/* 
           <motion.li whileHover={{ scale: 1.1 }} transition={{ duration: 0.2 }}>
@@ -147,6 +149,7 @@ export default function Navbar() {
           ))}
 
           <motion.li whileHover={{ scale: 1.02 }}>
+          <Link href={"/mypage"}>
             <motion.div
               className="relative flex items-center gap-2 text-[16px]"
               whileHover={{ scale: 1.02 }}
@@ -161,6 +164,7 @@ export default function Navbar() {
                 홍길동님
               </motion.span>
             </motion.div>
+            </Link>
           </motion.li>
 
           <motion.li whileHover={{ scale: 1.5 }}>
