@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { X } from "lucide-react";
+import Link from 'next/link'
 type Product = {
   id: number;
   title: string;
@@ -204,9 +205,11 @@ const CartTable: React.FC = () => {
             <span className=" font-bold">{totalAmount.toLocaleString()} </span>
             원
           </span>
+          <Link href={"/classapplication-shoppingbasket"}>
           <button className="bg-black text-white px-4 py-2 w-[199px] h-[69px] text-[24px] font-extrabold rounded">
             주문하기
           </button>
+          </Link>
         </div>
       </div>
     </main>
