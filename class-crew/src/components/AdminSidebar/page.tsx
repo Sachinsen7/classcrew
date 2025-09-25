@@ -37,8 +37,7 @@ const navItems = [
     href: "/admin/settings",
     icon: Settings,
     children: [
-      { name: "File Upload", href: "/admin/calender/file-upload" },
-      { name: "Course Lecture Process", href: "/admin/calender/course-lect-process" },
+      { name: "Set Leacture", href: "/admin/calender/set-lect" },
     ],
   },
    {
