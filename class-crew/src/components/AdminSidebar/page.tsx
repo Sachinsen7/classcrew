@@ -4,8 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
-  Users,
-  Settings,
+  Calendar,
+  Book,
+  StoreIcon,
   ChevronDown,
   ChevronRight,
 } from "lucide-react";
@@ -27,7 +28,7 @@ const navItems = [
   {
     name: "CoursePage",
     href: "/admin/coursepage",
-    icon: Users,
+    icon: Book,
     children: [
       { name: "Manage Courses", href: "/admin/coursepage/manage-course" },
       { name: "Manage Courses Curricullum", href: "/admin/coursepage/manage-course-cur" },
@@ -38,7 +39,7 @@ const navItems = [
   {
     name: "Calender",
     href: "/admin/settings",
-    icon: Settings,
+    icon: Calendar,
     children: [
       { name: "Set Leacture", href: "/admin/calender/set-lect" },
     ],
@@ -46,7 +47,7 @@ const navItems = [
    {
     name: "Store",
     href: "/admin/store ",
-    icon: Settings,
+    icon: StoreIcon,
     children: [
       { name: "Details of Store Items ", href: "/admin/store/detail" },
     ],
@@ -74,7 +75,7 @@ export default function AdminSidebar() {
     <aside className="w-64 h-full border-r border-black bg-black text-white flex flex-col">
       {/* Logo Section */}
       <div className="flex items-center justify-between px-6 py-5 border-white">
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/admin" className="flex items-center gap-2 group">
           <motion.span
             className={`text-2xl md:text-3xl font-normal tracking-widest ${phenomena.className}`}
           >
