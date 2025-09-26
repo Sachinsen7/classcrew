@@ -47,15 +47,15 @@ export default function DashboardPage() {
         <h2 className="text-2xl font-bold mb-4">Recent Activity</h2>
         <ul className="space-y-3">
           <li className="bg-white border-2 border-black rounded-xl p-4 shadow hover:shadow-lg transition flex justify-between items-center">
-            <span>New course added: "React Basics"</span>
+            <span>New course added: React Basics</span>
             <span className="text-gray-500 text-sm">2 hours ago</span>
           </li>
           <li className="bg-white border-2 border-black rounded-xl p-4 shadow hover:shadow-lg transition flex justify-between items-center">
-            <span>Promotion activated: "Summer Discount"</span>
+            <span>Promotion activated: Summer Discount</span>
             <span className="text-gray-500 text-sm">1 day ago</span>
           </li>
           <li className="bg-white border-2 border-black rounded-xl p-4 shadow hover:shadow-lg transition flex justify-between items-center">
-            <span>Notice published: "Maintenance Downtime"</span>
+            <span>Notice published: Maintenance Downtime</span>
             <span className="text-gray-500 text-sm">3 days ago</span>
           </li>
         </ul>
