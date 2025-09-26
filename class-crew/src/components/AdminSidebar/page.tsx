@@ -30,6 +30,9 @@ const navItems = [
     icon: Users,
     children: [
       { name: "Manage Courses", href: "/admin/coursepage/manage-course" },
+      { name: "Manage Courses Curricullum", href: "/admin/coursepage/manage-course-cur" },
+      { name: "Manage Courses Instructor", href: "/admin/coursepage/manage-course-ins" },
+      { name: "Manage Courses Promotion", href: "/admin/coursepage/manage-course-pro" },
     ],
   },
   {
