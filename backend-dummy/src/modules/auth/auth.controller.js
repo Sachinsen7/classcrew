@@ -20,7 +20,55 @@ const jwt = require("jsonwebtoken");
     return {accessToken, refreshToken};
 }
 
+// To refresh tokens
+exports.refreshToken = async (req, res) => {
+    try {
+        const token = req.cookie.refreshToken;
 
+        if(!token) return res.status(401).json({message: "No refresh token provided"});
+
+        //  verify token taken
+        jwt.verify(token, process.env.REFRESH_TOKEN_SECRET, async  (err, decoded) => {
+            if(err){
+                return res.status(403).json({message: "Invalid refresh token"});
+            }
+
+            const user = await User.findById(decoded.id);
+            if(!user) {
+                return res.status(404).json({message: "User not found"});
+            }
+
+            const tokens = generateTokens(user);
+
+            // set new refresh token in cookie
+            res.cookie("refreshToken", tokens.refreshToken, {
+                httpOnly: true, 
+                secure: process.env.NODE_ENV === "production",
+                sameSite: "strict",
+            });
+
+            return res.json({
+                accessToken: tokens.accessToken,
+            });
+        });
+    }
+    catch (err) {
+        return res.status(500).json({message: err.message});
+    }
+}
+
+exports.logout = async (req, res) => {
+    try {
+        res.clearCookie("refreshToken", {
+            httpOnly: true, 
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "strict",
+        })
+    }
+    catch(err) {
+        return res.status(500).json({message: err.message});
+    }
+}
 
 exports.register = async (req, res) => {
     try {
